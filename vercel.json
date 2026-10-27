@@ -1,8 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "asgi.py": {
+    "app.py": {
       "includeFiles": "{out/**,model/**}"
     }
   }
 }
+
