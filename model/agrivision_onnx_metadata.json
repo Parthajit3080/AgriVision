@@ -1,0 +1,3380 @@
+{
+  "climate_output": "climate_variable",
+  "climate_residual_sd": {
+    "humidity": 3.3135976791381836,
+    "rainfall": 341.12384033203125,
+    "temperature": 0.4514788091182709
+  },
+  "crop_feature_names": [
+    "crop:Arecanut",
+    "crop:Arhar/Tur",
+    "crop:Bajra",
+    "crop:Banana",
+    "crop:Barley",
+    "crop:Black pepper",
+    "crop:Cardamom",
+    "crop:Cashewnut",
+    "crop:Castor seed",
+    "crop:Coconut",
+    "crop:Coriander",
+    "crop:Cotton(lint)",
+    "crop:Cowpea(Lobia)",
+    "crop:Dry chillies",
+    "crop:Garlic",
+    "crop:Ginger",
+    "crop:Gram",
+    "crop:Groundnut",
+    "crop:Guar seed",
+    "crop:Horse-gram",
+    "crop:Jowar",
+    "crop:Jute",
+    "crop:Khesari",
+    "crop:Linseed",
+    "crop:Maize",
+    "crop:Masoor",
+    "crop:Mesta",
+    "crop:Moong(Green Gram)",
+    "crop:Moth",
+    "crop:Niger seed",
+    "crop:Oilseeds total",
+    "crop:Onion",
+    "crop:Other  Rabi pulses",
+    "crop:Other Cereals",
+    "crop:Other Kharif pulses",
+    "crop:other oilseeds",
+    "crop:Other Summer Pulses",
+    "crop:Peas & beans (Pulses)",
+    "crop:Potato",
+    "crop:Ragi",
+    "crop:Rapeseed &Mustard",
+    "crop:Rice",
+    "crop:Safflower",
+    "crop:Sannhamp",
+    "crop:Sesamum",
+    "crop:Small millets",
+    "crop:Soyabean",
+    "crop:Sugarcane",
+    "crop:Sunflower",
+    "crop:Sweet potato",
+    "crop:Tapioca",
+    "crop:Tobacco",
+    "crop:Turmeric",
+    "crop:Urad",
+    "crop:Wheat",
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "crop_output": "crop_variable",
+  "crops": [
+    "Arecanut",
+    "Arhar/Tur",
+    "Bajra",
+    "Banana",
+    "Barley",
+    "Black pepper",
+    "Cardamom",
+    "Cashewnut",
+    "Castor seed",
+    "Coconut",
+    "Coriander",
+    "Cotton(lint)",
+    "Cowpea(Lobia)",
+    "Dry chillies",
+    "Garlic",
+    "Ginger",
+    "Gram",
+    "Groundnut",
+    "Guar seed",
+    "Horse-gram",
+    "Jowar",
+    "Jute",
+    "Khesari",
+    "Linseed",
+    "Maize",
+    "Masoor",
+    "Mesta",
+    "Moong(Green Gram)",
+    "Moth",
+    "Niger seed",
+    "Oilseeds total",
+    "Onion",
+    "Other  Rabi pulses",
+    "Other Cereals",
+    "Other Kharif pulses",
+    "other oilseeds",
+    "Other Summer Pulses",
+    "Peas & beans (Pulses)",
+    "Potato",
+    "Ragi",
+    "Rapeseed &Mustard",
+    "Rice",
+    "Safflower",
+    "Sannhamp",
+    "Sesamum",
+    "Small millets",
+    "Soyabean",
+    "Sugarcane",
+    "Sunflower",
+    "Sweet potato",
+    "Tapioca",
+    "Tobacco",
+    "Turmeric",
+    "Urad",
+    "Wheat"
+  ],
+  "crops_by_season": {
+    "Autumn": [
+      "Arhar/Tur",
+      "Banana",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Ginger",
+      "Groundnut",
+      "Jowar",
+      "Jute",
+      "Maize",
+      "Moong(Green Gram)",
+      "Onion",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rice",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sweet potato",
+      "Tapioca",
+      "Turmeric",
+      "Urad"
+    ],
+    "Kharif": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Barley",
+      "Black pepper",
+      "Cardamom",
+      "Cashewnut",
+      "Castor seed",
+      "Coconut",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Moth",
+      "Niger seed",
+      "Oilseeds total",
+      "Onion",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Rabi": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Barley",
+      "Black pepper",
+      "Cashewnut",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Moth",
+      "Niger seed",
+      "Oilseeds total",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Summer": [
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Ginger",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Maize",
+      "Moong(Green Gram)",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "other oilseeds",
+      "Other Summer Pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Sugarcane",
+      "Sunflower",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Whole Year": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Barley",
+      "Black pepper",
+      "Cardamom",
+      "Cashewnut",
+      "Castor seed",
+      "Coconut",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Horse-gram",
+      "Jowar",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Moth",
+      "Niger seed",
+      "Oilseeds total",
+      "Onion",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Winter": [
+      "Arhar/Tur",
+      "Banana",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Ginger",
+      "Groundnut",
+      "Horse-gram",
+      "Maize",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Soyabean",
+      "Sugarcane",
+      "Sweet potato",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ]
+  },
+  "crops_by_state": {
+    "Andhra Pradesh": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Black pepper",
+      "Cashewnut",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Horse-gram",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Oilseeds total",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Urad",
+      "Wheat"
+    ],
+    "Arunachal Pradesh": [
+      "Arhar/Tur",
+      "Dry chillies",
+      "Ginger",
+      "Groundnut",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Oilseeds total",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Assam": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Banana",
+      "Black pepper",
+      "Castor seed",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Ginger",
+      "Gram",
+      "Jute",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Sugarcane",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Bihar": [
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Barley",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Chhattisgarh": [
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Castor seed",
+      "Coconut",
+      "Coriander",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Delhi": [
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Cotton(lint)",
+      "Gram",
+      "Jowar",
+      "Maize",
+      "Other Kharif pulses",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sugarcane",
+      "Wheat"
+    ],
+    "Goa": [
+      "Arecanut",
+      "Banana",
+      "Black pepper",
+      "Cashewnut",
+      "Groundnut",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Ragi",
+      "Rice",
+      "Sugarcane",
+      "Sweet potato"
+    ],
+    "Gujarat": [
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Castor seed",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Garlic",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Jowar",
+      "Maize",
+      "Moong(Green Gram)",
+      "Moth",
+      "Oilseeds total",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Tobacco",
+      "Urad",
+      "Wheat"
+    ],
+    "Haryana": [
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Barley",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Moth",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sannhamp",
+      "Sesamum",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Himachal Pradesh": [
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Coriander",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Moth",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sweet potato",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Jammu and Kashmir": [
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Moth",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Sugarcane",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Jharkhand": [
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Castor seed",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sesamum",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Urad",
+      "Wheat"
+    ],
+    "Karnataka": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Black pepper",
+      "Cardamom",
+      "Cashewnut",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Kerala": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Banana",
+      "Black pepper",
+      "Cardamom",
+      "Cashewnut",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Maize",
+      "Moong(Green Gram)",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Potato",
+      "Ragi",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Madhya Pradesh": [
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Barley",
+      "Cashewnut",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Maharashtra": [
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Castor seed",
+      "Cotton(lint)",
+      "Gram",
+      "Groundnut",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Other Summer Pulses",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Tobacco",
+      "Urad",
+      "Wheat"
+    ],
+    "Manipur": [
+      "Arhar/Tur",
+      "Banana",
+      "Cashewnut",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Jute",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Soyabean",
+      "Sugarcane",
+      "Sweet potato",
+      "Tapioca",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Meghalaya": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Banana",
+      "Black pepper",
+      "Cashewnut",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Jute",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Onion",
+      "Other  Rabi pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Wheat"
+    ],
+    "Mizoram": [
+      "Arhar/Tur",
+      "Coconut",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Gram",
+      "Groundnut",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Tapioca",
+      "Tobacco",
+      "Urad",
+      "Wheat"
+    ],
+    "Nagaland": [
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Cardamom",
+      "Castor seed",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Odisha": [
+      "Arhar/Tur",
+      "Bajra",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Puducherry": [
+      "Arecanut",
+      "Bajra",
+      "Banana",
+      "Black pepper",
+      "Cashewnut",
+      "Coriander",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Ginger",
+      "Groundnut",
+      "Jowar",
+      "Moong(Green Gram)",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "Other Summer Pulses",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad"
+    ],
+    "Punjab": [
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Cotton(lint)",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Moth",
+      "Other  Rabi pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Sugarcane",
+      "Sunflower",
+      "Urad",
+      "Wheat"
+    ],
+    "Sikkim": [
+      "Barley",
+      "Maize",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Small millets",
+      "Soyabean",
+      "Urad",
+      "Wheat"
+    ],
+    "Tamil Nadu": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Black pepper",
+      "Cardamom",
+      "Cashewnut",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Niger seed",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad"
+    ],
+    "Telangana": [
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Cashewnut",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Tripura": [
+      "Arhar/Tur",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Gram",
+      "Groundnut",
+      "Jowar",
+      "Jute",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Urad",
+      "Wheat"
+    ],
+    "Uttar Pradesh": [
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Barley",
+      "Castor seed",
+      "Coriander",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Jowar",
+      "Jute",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Moth",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "Uttarakhand": [
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Dry chillies",
+      "Garlic",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Moong(Green Gram)",
+      "Moth",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "other oilseeds",
+      "Other Summer Pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ],
+    "West Bengal": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Bajra",
+      "Barley",
+      "Cardamom",
+      "Castor seed",
+      "Cotton(lint)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Moth",
+      "Niger seed",
+      "Other  Rabi pulses",
+      "Other Kharif pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat"
+    ]
+  },
+  "default_features": {
+    "K": 33.0,
+    "N": 72.0,
+    "P": 38.0,
+    "humidity": 67.96,
+    "ph": 6.6,
+    "rainfall": 1172.02,
+    "temperature": 25.54
+  },
+  "fertilizer_feature_names": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "rainfall",
+    "ph"
+  ],
+  "fertilizer_output": "fert_variable",
+  "fertilizer_products": [
+    {
+      "cost": 6.2,
+      "k": 0,
+      "max_kg_ha": 220,
+      "n": 0.46,
+      "name": "Urea",
+      "p": 0
+    },
+    {
+      "cost": 27.0,
+      "k": 0,
+      "max_kg_ha": 180,
+      "n": 0.18,
+      "name": "DAP",
+      "p": 0.46
+    },
+    {
+      "cost": 17.0,
+      "k": 0.6,
+      "max_kg_ha": 160,
+      "n": 0,
+      "name": "MOP",
+      "p": 0
+    },
+    {
+      "cost": 24.0,
+      "k": 0.15,
+      "max_kg_ha": 250,
+      "n": 0.15,
+      "name": "NPK 15-15-15",
+      "p": 0.15
+    }
+  ],
+  "fertilizer_safe_targets_npk": {
+    "K": 35.0,
+    "N": 78.0,
+    "P": 40.0
+  },
+  "json_schema_version": "agrivision_outputs_v1",
+  "last_training_weather_year": 2020,
+  "market_prices": {
+    "ajwan": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 164890.0,
+      "price_source": "national_latest_market"
+    },
+    "alasandegram": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 50500.0,
+      "price_source": "national_latest_market"
+    },
+    "almondbadam": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 750000.0,
+      "price_source": "national_latest_market"
+    },
+    "alsandikai": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 39000.0,
+      "price_source": "national_latest_market"
+    },
+    "amaranthus": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 40000.0,
+      "price_source": "national_latest_market"
+    },
+    "amlanellikai": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 33500.0,
+      "price_source": "national_latest_market"
+    },
+    "amphophalus": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 50000.0,
+      "price_source": "national_latest_market"
+    },
+    "anthorium": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 250.0,
+      "price_source": "national_latest_market"
+    },
+    "apple": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 95000.0,
+      "price_source": "national_latest_market"
+    },
+    "arecanutbetelnutsupari": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 151500.0,
+      "price_source": "national_latest_market"
+    },
+    "arhardalturdal": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 129000.0,
+      "price_source": "national_latest_market"
+    },
+    "arharturredgramwhole": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 90000.0,
+      "price_source": "national_latest_market"
+    },
+    "ashgourd": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 30000.0,
+      "price_source": "national_latest_market"
+    },
+    "bajrapearlmilletcumbu": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 22225.0,
+      "price_source": "national_latest_market"
+    },
+    "banana": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 39000.0,
+      "price_source": "national_latest_market"
+    },
+    "bananagreen": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 40000.0,
+      "price_source": "national_latest_market"
+    },
+    "barleyjau": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 16170.0,
+      "price_source": "national_latest_market"
+    },
+    "beans": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 55000.0,
+      "price_source": "national_latest_market"
+    },
+    "beetroot": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 38750.0,
+      "price_source": "national_latest_market"
+    },
+    "bengalgramdalchanadal": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 63075.0,
+      "price_source": "national_latest_market"
+    },
+    "bengalgramgramwhole": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 50190.0,
+      "price_source": "national_latest_market"
+    },
+    "betalleaves": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 232500.0,
+      "price_source": "national_latest_market"
+    },
+    "bhindiladiesfinger": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 33250.0,
+      "price_source": "national_latest_market"
+    },
+    "bittergourd": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 50000.0,
+      "price_source": "national_latest_market"
+    },
+    "blackgramdalurddal": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 95000.0,
+      "price_source": "national_latest_market"
+    },
+    "blackgramurdbeanswhole": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 79300.0,
+      "price_source": "national_latest_market"
+    },
+    "blackpepper": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 530000.0,
+      "price_source": "national_latest_market"
+    },
+    "bottlegourd": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 20000.0,
+      "price_source": "national_latest_market"
+    },
+    "brinjal": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 37000.0,
+      "price_source": "national_latest_market"
+    },
+    "broomstickflowerbroom": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 80000.0,
+      "price_source": "national_latest_market"
+    },
+    "bull": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 150000.0,
+      "price_source": "national_latest_market"
+    },
+    "bunchbeans": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 23500.0,
+      "price_source": "national_latest_market"
+    },
+    "cabbage": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 23500.0,
+      "price_source": "national_latest_market"
+    },
+    "calf": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 150000.0,
+      "price_source": "national_latest_market"
+    },
+    "capsicum": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 105000.0,
+      "price_source": "national_latest_market"
+    },
+    "cardamoms": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 1312500.0,
+      "price_source": "national_latest_market"
+    },
+    "carnation": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 22.5,
+      "price_source": "national_latest_market"
+    },
+    "carrot": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 32500.0,
+      "price_source": "national_latest_market"
+    },
+    "cashewnuts": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 347500.0,
+      "price_source": "national_latest_market"
+    },
+    "castorseed": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 61750.0,
+      "price_source": "national_latest_market"
+    },
+    "cauliflower": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 43500.0,
+      "price_source": "national_latest_market"
+    },
+    "chapparadavare": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 32540.0,
+      "price_source": "national_latest_market"
+    },
+    "cherry": {
+      "price_observation_date": "2023-07-31T00:00:00",
+      "price_per_ton": 199000.0,
+      "price_source": "national_latest_market"
+    },
+    "chikoossapota": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 30000.0,
+      "price_source": "national_latest_market"
+    },
+    "chilired": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 248000.0,
+      "price_source": "national_latest_market"
+    },
+    "chillycapsicum": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 40000.0,
+      "price_source": "national_latest_market"
+    },
+    "chowchow": {
+      "price_observation_date": "2023-07-29T00:00:00",
+      "price_per_ton": 28000.0,
+      "price_source": "national_latest_market"
+    },
+    "chrysanthemum": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 65.0,
+      "price_source": "national_latest_market"
+    },
+    "chrysanthemumloose": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 15700.0,
+      "price_source": "national_latest_market"
+    },
+    "cinamondalchini": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 175000.0,
+      "price_source": "national_latest_market"
+    },
+    "cloves": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 950000.0,
+      "price_source": "national_latest_market"
+    },
+    "clusterbeans": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 40000.0,
+      "price_source": "national_latest_market"
+    },
+    "cock": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 1800.0,
+      "price_source": "national_latest_market"
+    },
+    "cocoa": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 50000.0,
+      "price_source": "national_latest_market"
+    },
+    "coconut": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 22625.0,
+      "price_source": "national_latest_market"
+    },
+    "coconutoil": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 145000.0,
+      "price_source": "national_latest_market"
+    },
+    "coconutseed": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 26000.0,
+      "price_source": "national_latest_market"
+    },
+    "coffee": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 243000.0,
+      "price_source": "national_latest_market"
+    },
+    "colacasia": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 33250.0,
+      "price_source": "national_latest_market"
+    },
+    "copra": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 77180.0,
+      "price_source": "national_latest_market"
+    },
+    "corianderleaves": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 101750.0,
+      "price_source": "national_latest_market"
+    },
+    "corrianderseed": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 67325.0,
+      "price_source": "national_latest_market"
+    },
+    "cotton": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 68500.0,
+      "price_source": "national_latest_market"
+    },
+    "cow": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 200000.0,
+      "price_source": "national_latest_market"
+    },
+    "cowpealobiakaramani": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 84610.0,
+      "price_source": "national_latest_market"
+    },
+    "cowpeaveg": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 49000.0,
+      "price_source": "national_latest_market"
+    },
+    "cucumbarkheera": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 15000.0,
+      "price_source": "national_latest_market"
+    },
+    "cumminseedjeera": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 525000.0,
+      "price_source": "national_latest_market"
+    },
+    "custardapplesharifa": {
+      "price_observation_date": "2023-07-28T00:00:00",
+      "price_per_ton": 30000.0,
+      "price_source": "national_latest_market"
+    },
+    "drumstick": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 42000.0,
+      "price_source": "national_latest_market"
+    },
+    "drychillies": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 202500.0,
+      "price_source": "national_latest_market"
+    },
+    "dryfodder": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 9350.0,
+      "price_source": "national_latest_market"
+    },
+    "drygrapes": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 103000.0,
+      "price_source": "national_latest_market"
+    },
+    "duck": {
+      "price_observation_date": "2023-07-29T00:00:00",
+      "price_per_ton": 5500.0,
+      "price_source": "national_latest_market"
+    },
+    "dusterbeans": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 47000.0,
+      "price_source": "national_latest_market"
+    },
+    "egg": {
+      "price_observation_date": "2023-07-31T00:00:00",
+      "price_per_ton": 5600.0,
+      "price_source": "national_latest_market"
+    },
+    "elephantyamsuran": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 43875.0,
+      "price_source": "national_latest_market"
+    },
+    "fieldpea": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 57500.0,
+      "price_source": "national_latest_market"
+    },
+    "firewood": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 2500.0,
+      "price_source": "national_latest_market"
+    },
+    "fish": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 225000.0,
+      "price_source": "national_latest_market"
+    },
+    "foxtailmilletnavane": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 50210.0,
+      "price_source": "national_latest_market"
+    },
+    "frenchbeansfrasbean": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 83750.0,
+      "price_source": "national_latest_market"
+    },
+    "garlic": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 110000.0,
+      "price_source": "national_latest_market"
+    },
+    "ghee": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 850000.0,
+      "price_source": "national_latest_market"
+    },
+    "gingellyoil": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 127180.0,
+      "price_source": "national_latest_market"
+    },
+    "gingerdry": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 172000.0,
+      "price_source": "national_latest_market"
+    },
+    "gingergreen": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 161000.0,
+      "price_source": "national_latest_market"
+    },
+    "gladioluscutflower": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 37.5,
+      "price_source": "national_latest_market"
+    },
+    "goat": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 50000.0,
+      "price_source": "national_latest_market"
+    },
+    "gramrawchholia": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 10000.0,
+      "price_source": "national_latest_market"
+    },
+    "grapes": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 62500.0,
+      "price_source": "national_latest_market"
+    },
+    "greenavarew": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 29500.0,
+      "price_source": "national_latest_market"
+    },
+    "greenchilli": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 35000.0,
+      "price_source": "national_latest_market"
+    },
+    "greenfodder": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 2000.0,
+      "price_source": "national_latest_market"
+    },
+    "greengramdalmoongdal": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 95600.0,
+      "price_source": "national_latest_market"
+    },
+    "greengrammoongwhole": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 74000.0,
+      "price_source": "national_latest_market"
+    },
+    "greenpeas": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 55000.0,
+      "price_source": "national_latest_market"
+    },
+    "groundnut": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 70795.0,
+      "price_source": "national_latest_market"
+    },
+    "groundnutpodsraw": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 47500.0,
+      "price_source": "national_latest_market"
+    },
+    "groundnutseed": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 98500.0,
+      "price_source": "national_latest_market"
+    },
+    "groundnutsplit": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 78150.0,
+      "price_source": "national_latest_market"
+    },
+    "guar": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 58550.0,
+      "price_source": "national_latest_market"
+    },
+    "guarseedclusterbeansseed": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 55950.0,
+      "price_source": "national_latest_market"
+    },
+    "guava": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 25000.0,
+      "price_source": "national_latest_market"
+    },
+    "gurjaggery": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 40000.0,
+      "price_source": "national_latest_market"
+    },
+    "hebuffalo": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 200000.0,
+      "price_source": "national_latest_market"
+    },
+    "hybridcumbu": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 26215.0,
+      "price_source": "national_latest_market"
+    },
+    "indianbeansseam": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 65000.0,
+      "price_source": "national_latest_market"
+    },
+    "isabgulpsyllium": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 235500.0,
+      "price_source": "national_latest_market"
+    },
+    "jackfruit": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 38750.0,
+      "price_source": "national_latest_market"
+    },
+    "jaffri": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 30000.0,
+      "price_source": "national_latest_market"
+    },
+    "jamunnaralehannu": {
+      "price_observation_date": "2023-07-29T00:00:00",
+      "price_per_ton": 23000.0,
+      "price_source": "national_latest_market"
+    },
+    "jarbara": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 22.0,
+      "price_source": "national_latest_market"
+    },
+    "jasmine": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 350000.0,
+      "price_source": "national_latest_market"
+    },
+    "jowarsorghum": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 36000.0,
+      "price_source": "national_latest_market"
+    },
+    "jute": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 53000.0,
+      "price_source": "national_latest_market"
+    },
+    "kabulichanachickpeaswhite": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 103450.0,
+      "price_source": "national_latest_market"
+    },
+    "kakada": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 500000.0,
+      "price_source": "national_latest_market"
+    },
+    "karbujamuskmelon": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 18000.0,
+      "price_source": "national_latest_market"
+    },
+    "kartalikantola": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 57500.0,
+      "price_source": "national_latest_market"
+    },
+    "knoolkhol": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 23000.0,
+      "price_source": "national_latest_market"
+    },
+    "kodomilletvaragu": {
+      "price_observation_date": "2023-07-31T00:00:00",
+      "price_per_ton": 28000.0,
+      "price_source": "national_latest_market"
+    },
+    "kulthihorsegram": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 47150.0,
+      "price_source": "national_latest_market"
+    },
+    "lakteora": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 31000.0,
+      "price_source": "national_latest_market"
+    },
+    "leafyvegetable": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 32150.0,
+      "price_source": "national_latest_market"
+    },
+    "lemon": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 57500.0,
+      "price_source": "national_latest_market"
+    },
+    "lentilmasurwhole": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 67775.0,
+      "price_source": "national_latest_market"
+    },
+    "lilly": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 250.0,
+      "price_source": "national_latest_market"
+    },
+    "lime": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 17500.0,
+      "price_source": "national_latest_market"
+    },
+    "linseed": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 49250.0,
+      "price_source": "national_latest_market"
+    },
+    "litchi": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 39000.0,
+      "price_source": "national_latest_market"
+    },
+    "littlegourdkundru": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 34500.0,
+      "price_source": "national_latest_market"
+    },
+    "longmelonkakri": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 19000.0,
+      "price_source": "national_latest_market"
+    },
+    "lotus": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 80.0,
+      "price_source": "national_latest_market"
+    },
+    "mahua": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 24300.0,
+      "price_source": "national_latest_market"
+    },
+    "mahuaseedhippeseed": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 30000.0,
+      "price_source": "national_latest_market"
+    },
+    "maize": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 20150.0,
+      "price_source": "national_latest_market"
+    },
+    "mango": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 35000.0,
+      "price_source": "national_latest_market"
+    },
+    "mangorawripe": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 35000.0,
+      "price_source": "national_latest_market"
+    },
+    "marigoldcalcutta": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 35000.0,
+      "price_source": "national_latest_market"
+    },
+    "marigoldloose": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 40000.0,
+      "price_source": "national_latest_market"
+    },
+    "mashrooms": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 33250.0,
+      "price_source": "national_latest_market"
+    },
+    "masurdal": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 84400.0,
+      "price_source": "national_latest_market"
+    },
+    "mataki": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 78395.0,
+      "price_source": "national_latest_market"
+    },
+    "methileaves": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 14000.0,
+      "price_source": "national_latest_market"
+    },
+    "methiseeds": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 66510.0,
+      "price_source": "national_latest_market"
+    },
+    "mintpudina": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 6000.0,
+      "price_source": "national_latest_market"
+    },
+    "moathdal": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 98000.0,
+      "price_source": "national_latest_market"
+    },
+    "mousambisweetlime": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 50000.0,
+      "price_source": "national_latest_market"
+    },
+    "mustard": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 51480.0,
+      "price_source": "national_latest_market"
+    },
+    "mustardoil": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 126250.0,
+      "price_source": "national_latest_market"
+    },
+    "neemseed": {
+      "price_observation_date": "2023-07-31T00:00:00",
+      "price_per_ton": 10000.0,
+      "price_source": "national_latest_market"
+    },
+    "nigerseedramtil": {
+      "price_observation_date": "2023-07-31T00:00:00",
+      "price_per_ton": 165000.0,
+      "price_source": "national_latest_market"
+    },
+    "nutmeg": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 285000.0,
+      "price_source": "national_latest_market"
+    },
+    "onion": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 20000.0,
+      "price_source": "national_latest_market"
+    },
+    "oniongreen": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 10000.0,
+      "price_source": "national_latest_market"
+    },
+    "orange": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 55000.0,
+      "price_source": "national_latest_market"
+    },
+    "orchid": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 350.0,
+      "price_source": "national_latest_market"
+    },
+    "ox": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 150000.0,
+      "price_source": "national_latest_market"
+    },
+    "paddydhanbasmati": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 31000.0,
+      "price_source": "national_latest_market"
+    },
+    "paddydhancommon": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 20600.0,
+      "price_source": "national_latest_market"
+    },
+    "papaya": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 43500.0,
+      "price_source": "national_latest_market"
+    },
+    "papayaraw": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 101000.0,
+      "price_source": "national_latest_market"
+    },
+    "patticalcutta": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 280000.0,
+      "price_source": "national_latest_market"
+    },
+    "peach": {
+      "price_observation_date": "2023-07-31T00:00:00",
+      "price_per_ton": 19000.0,
+      "price_source": "national_latest_market"
+    },
+    "pearmarasebu": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 70000.0,
+      "price_source": "national_latest_market"
+    },
+    "peascod": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 77500.0,
+      "price_source": "national_latest_market"
+    },
+    "peasdry": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 53250.0,
+      "price_source": "national_latest_market"
+    },
+    "peaswet": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 112500.0,
+      "price_source": "national_latest_market"
+    },
+    "pegeonpeaarharfali": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 105000.0,
+      "price_source": "national_latest_market"
+    },
+    "pepperungarbled": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 468500.0,
+      "price_source": "national_latest_market"
+    },
+    "pineapple": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 48250.0,
+      "price_source": "national_latest_market"
+    },
+    "plum": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 73250.0,
+      "price_source": "national_latest_market"
+    },
+    "pointedgourdparval": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 34800.0,
+      "price_source": "national_latest_market"
+    },
+    "pomegranate": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 101250.0,
+      "price_source": "national_latest_market"
+    },
+    "potato": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 15000.0,
+      "price_source": "national_latest_market"
+    },
+    "pumpkin": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 8000.0,
+      "price_source": "national_latest_market"
+    },
+    "raddish": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 15750.0,
+      "price_source": "national_latest_market"
+    },
+    "ragifingermillet": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 32000.0,
+      "price_source": "national_latest_market"
+    },
+    "raibel": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 350000.0,
+      "price_source": "national_latest_market"
+    },
+    "rajgir": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 1530.0,
+      "price_source": "national_latest_market"
+    },
+    "resinwood": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 18000.0,
+      "price_source": "national_latest_market"
+    },
+    "rice": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 29625.0,
+      "price_source": "national_latest_market"
+    },
+    "ridgeguardtori": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 42000.0,
+      "price_source": "national_latest_market"
+    },
+    "roselocal": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 654.15,
+      "price_source": "national_latest_market"
+    },
+    "roseloose": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 85000.0,
+      "price_source": "national_latest_market"
+    },
+    "roundgourd": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 26250.0,
+      "price_source": "national_latest_market"
+    },
+    "rubber": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 149000.0,
+      "price_source": "national_latest_market"
+    },
+    "sabudan": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 68000.0,
+      "price_source": "national_latest_market"
+    },
+    "safflower": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 41260.0,
+      "price_source": "national_latest_market"
+    },
+    "samesavi": {
+      "price_observation_date": "2023-07-31T00:00:00",
+      "price_per_ton": 40000.0,
+      "price_source": "national_latest_market"
+    },
+    "seasonleaves": {
+      "price_observation_date": "2023-07-29T00:00:00",
+      "price_per_ton": 22000.0,
+      "price_source": "national_latest_market"
+    },
+    "seemebadnekai": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 20000.0,
+      "price_source": "national_latest_market"
+    },
+    "seetapal": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 42500.0,
+      "price_source": "national_latest_market"
+    },
+    "sesamumsesamegingellytil": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 156890.0,
+      "price_source": "national_latest_market"
+    },
+    "shebuffalo": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 400000.0,
+      "price_source": "national_latest_market"
+    },
+    "sheep": {
+      "price_observation_date": "2023-07-28T00:00:00",
+      "price_per_ton": 60000.0,
+      "price_source": "national_latest_market"
+    },
+    "snakeguard": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 30000.0,
+      "price_source": "national_latest_market"
+    },
+    "soanf": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 200000.0,
+      "price_source": "national_latest_market"
+    },
+    "soyabean": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 47650.0,
+      "price_source": "national_latest_market"
+    },
+    "spinach": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 8000.0,
+      "price_source": "national_latest_market"
+    },
+    "spongegourd": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 36250.0,
+      "price_source": "national_latest_market"
+    },
+    "squashchappalkadoo": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 25500.0,
+      "price_source": "national_latest_market"
+    },
+    "sugar": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 38600.0,
+      "price_source": "national_latest_market"
+    },
+    "sunflower": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 43605.0,
+      "price_source": "national_latest_market"
+    },
+    "suratbeanspapadi": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 55000.0,
+      "price_source": "national_latest_market"
+    },
+    "suvadillseed": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 217500.0,
+      "price_source": "national_latest_market"
+    },
+    "suvarnagadde": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 27500.0,
+      "price_source": "national_latest_market"
+    },
+    "sweetpotato": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 25000.0,
+      "price_source": "national_latest_market"
+    },
+    "sweetpumpkin": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 16000.0,
+      "price_source": "national_latest_market"
+    },
+    "tamarindfruit": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 74250.0,
+      "price_source": "national_latest_market"
+    },
+    "tamarindseed": {
+      "price_observation_date": "2023-07-29T00:00:00",
+      "price_per_ton": 31000.0,
+      "price_source": "national_latest_market"
+    },
+    "tapioca": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 30000.0,
+      "price_source": "national_latest_market"
+    },
+    "taramira": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 51600.0,
+      "price_source": "national_latest_market"
+    },
+    "tendercoconut": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 26500.0,
+      "price_source": "national_latest_market"
+    },
+    "thinaiitalianmillet": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 44100.0,
+      "price_source": "national_latest_market"
+    },
+    "thondekai": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 20500.0,
+      "price_source": "national_latest_market"
+    },
+    "tinda": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 29250.0,
+      "price_source": "national_latest_market"
+    },
+    "tobacco": {
+      "price_observation_date": "2023-07-31T00:00:00",
+      "price_per_ton": 50000.0,
+      "price_source": "national_latest_market"
+    },
+    "tomato": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 80000.0,
+      "price_source": "national_latest_market"
+    },
+    "tuberosedouble": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 10.4,
+      "price_source": "national_latest_market"
+    },
+    "tuberosesingle": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 10.4,
+      "price_source": "national_latest_market"
+    },
+    "turmeric": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 102220.0,
+      "price_source": "national_latest_market"
+    },
+    "turmericraw": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 30000.0,
+      "price_source": "national_latest_market"
+    },
+    "turnip": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 55000.0,
+      "price_source": "national_latest_market"
+    },
+    "tvcumbu": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 74230.0,
+      "price_source": "national_latest_market"
+    },
+    "watermelon": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 16500.0,
+      "price_source": "national_latest_market"
+    },
+    "wheat": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 131125.0,
+      "price_source": "national_latest_market"
+    },
+    "wheatatta": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 44000.0,
+      "price_source": "national_latest_market"
+    },
+    "whitepeas": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 51450.0,
+      "price_source": "national_latest_market"
+    },
+    "whitepumpkin": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 12250.0,
+      "price_source": "national_latest_market"
+    },
+    "wood": {
+      "price_observation_date": "2023-08-02T00:00:00",
+      "price_per_ton": 3800.0,
+      "price_source": "national_latest_market"
+    },
+    "yam": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 46000.0,
+      "price_source": "national_latest_market"
+    },
+    "yamratalu": {
+      "price_observation_date": "2023-08-01T00:00:00",
+      "price_per_ton": 41000.0,
+      "price_source": "national_latest_market"
+    }
+  },
+  "model_file": "agrivision_website_model.onnx",
+  "model_inputs": [
+    "crop_crop_features",
+    "fert_fertilizer_features",
+    "climate_climate_features"
+  ],
+  "model_outputs": [
+    "crop_variable",
+    "fert_variable",
+    "climate_variable"
+  ],
+  "model_version": "1.0.0",
+  "note": "Dataset-free inference bundle. Crop costs are absent from the source; provide crop_cost_per_ha for profit estimates. Mandi prices are historical and should be refreshed for production use.",
+  "soil_feature_names": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "state_climate_summary": {
+    "Andhra Pradesh": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 69.88166666666667,
+        "rainfall": 1021.0704166666668,
+        "temperature": 28.000833333333333
+      },
+      "stds": {
+        "humidity": 2.092815176339956,
+        "rainfall": 243.2169995574567,
+        "temperature": 0.28317941258174995
+      }
+    },
+    "Arunachal Pradesh": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 75.63958333333333,
+        "rainfall": 2158.3570833333333,
+        "temperature": 22.24791666666667
+      },
+      "stds": {
+        "humidity": 3.4341272914123597,
+        "rainfall": 315.7642021106912,
+        "temperature": 0.4455770968927402
+      }
+    },
+    "Assam": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 76.53333333333333,
+        "rainfall": 1957.9833333333336,
+        "temperature": 22.910416666666666
+      },
+      "stds": {
+        "humidity": 2.320760120355374,
+        "rainfall": 332.72165623466145,
+        "temperature": 0.42639519499971
+      }
+    },
+    "Bihar": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 56.00958333333333,
+        "rainfall": 1001.9929166666667,
+        "temperature": 26.1675
+      },
+      "stds": {
+        "humidity": 4.049524372679777,
+        "rainfall": 211.31035060718602,
+        "temperature": 0.5874502754165295
+      }
+    },
+    "Chhattisgarh": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 59.01666666666667,
+        "rainfall": 1242.8266666666666,
+        "temperature": 26.236666666666668
+      },
+      "stds": {
+        "humidity": 3.7741600466820433,
+        "rainfall": 253.01006781251365,
+        "temperature": 0.4845945563643601
+      }
+    },
+    "Delhi": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 44.76083333333333,
+        "rainfall": 732.1679166666667,
+        "temperature": 25.641250000000003
+      },
+      "stds": {
+        "humidity": 5.0891896652881154,
+        "rainfall": 170.3776463185128,
+        "temperature": 0.615921455325624
+      }
+    },
+    "Goa": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 73.82625,
+        "rainfall": 2178.0608333333334,
+        "temperature": 27.391250000000003
+      },
+      "stds": {
+        "humidity": 1.0831187357128378,
+        "rainfall": 546.981212569155,
+        "temperature": 0.216319258826232
+      }
+    },
+    "Gujarat": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 47.66125,
+        "rainfall": 755.9162499999999,
+        "temperature": 27.615
+      },
+      "stds": {
+        "humidity": 5.29249288882478,
+        "rainfall": 226.03449318945337,
+        "temperature": 0.579715072442826
+      }
+    },
+    "Haryana": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 46.66166666666667,
+        "rainfall": 1014.9391666666667,
+        "temperature": 24.2025
+      },
+      "stds": {
+        "humidity": 5.721034162112473,
+        "rainfall": 243.25157269104483,
+        "temperature": 0.6810174613096901
+      }
+    },
+    "Himachal Pradesh": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 49.18833333333333,
+        "rainfall": 1052.3841666666667,
+        "temperature": 21.170833333333334
+      },
+      "stds": {
+        "humidity": 5.7647962116903,
+        "rainfall": 242.75954961589082,
+        "temperature": 0.6304581954673002
+      }
+    },
+    "Jammu and Kashmir": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 53.42666666666667,
+        "rainfall": 697.6441666666668,
+        "temperature": 9.253333333333332
+      },
+      "stds": {
+        "humidity": 6.849165399277977,
+        "rainfall": 286.0547051955146,
+        "temperature": 0.7762992848831852
+      }
+    },
+    "Jharkhand": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 61.83833333333333,
+        "rainfall": 1321.3995833333333,
+        "temperature": 23.387083333333333
+      },
+      "stds": {
+        "humidity": 3.5448329410157178,
+        "rainfall": 211.54452966279612,
+        "temperature": 0.4620415863710017
+      }
+    },
+    "Karnataka": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 68.28083333333333,
+        "rainfall": 866.12875,
+        "temperature": 23.67458333333333
+      },
+      "stds": {
+        "humidity": 2.9739154642332712,
+        "rainfall": 222.60656149383533,
+        "temperature": 0.48476779888992144
+      }
+    },
+    "Kerala": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 80.1725,
+        "rainfall": 1803.5525,
+        "temperature": 26.911666666666672
+      },
+      "stds": {
+        "humidity": 1.170678918591594,
+        "rainfall": 313.68390399932997,
+        "temperature": 0.29637911483460655
+      }
+    },
+    "Madhya Pradesh": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 52.451666666666675,
+        "rainfall": 1193.3954166666665,
+        "temperature": 25.22375
+      },
+      "stds": {
+        "humidity": 3.91774632051184,
+        "rainfall": 296.2097969929446,
+        "temperature": 0.408898972321058
+      }
+    },
+    "Maharashtra": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 67.5475,
+        "rainfall": 2413.4566666666665,
+        "temperature": 26.70416666666667
+      },
+      "stds": {
+        "humidity": 1.899336840790124,
+        "rainfall": 583.858385187387,
+        "temperature": 0.28647659691449484
+      }
+    },
+    "Manipur": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 73.85416666666667,
+        "rainfall": 1296.3720833333334,
+        "temperature": 20.476666666666667
+      },
+      "stds": {
+        "humidity": 4.787312867648574,
+        "rainfall": 309.6140630861079,
+        "temperature": 0.4053840547974944
+      }
+    },
+    "Meghalaya": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 81.27375,
+        "rainfall": 2913.2116666666666,
+        "temperature": 17.918333333333333
+      },
+      "stds": {
+        "humidity": 2.1905901775747463,
+        "rainfall": 938.2465033365103,
+        "temperature": 0.3254918240697175
+      }
+    },
+    "Mizoram": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 77.81458333333335,
+        "rainfall": 2060.0750000000003,
+        "temperature": 22.917083333333334
+      },
+      "stds": {
+        "humidity": 3.80690674291811,
+        "rainfall": 739.5925140590418,
+        "temperature": 0.34198244509568443
+      }
+    },
+    "Nagaland": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 73.03875,
+        "rainfall": 1170.9329166666666,
+        "temperature": 18.392916666666665
+      },
+      "stds": {
+        "humidity": 4.490934164949766,
+        "rainfall": 398.74674098686364,
+        "temperature": 0.4153623788899295
+      }
+    },
+    "Odisha": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 72.73458333333333,
+        "rainfall": 1536.4195833333333,
+        "temperature": 26.414166666666663
+      },
+      "stds": {
+        "humidity": 1.5189583935872881,
+        "rainfall": 232.50911444461448,
+        "temperature": 0.3413262708734942
+      }
+    },
+    "Puducherry": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 75.15333333333334,
+        "rainfall": 1139.2620833333333,
+        "temperature": 28.07375
+      },
+      "stds": {
+        "humidity": 0.8438971020453735,
+        "rainfall": 230.13564323410523,
+        "temperature": 0.1993862866506816
+      }
+    },
+    "Punjab": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 46.66166666666667,
+        "rainfall": 1014.9391666666667,
+        "temperature": 24.2025
+      },
+      "stds": {
+        "humidity": 5.721034162112473,
+        "rainfall": 243.25157269104483,
+        "temperature": 0.6810174613096901
+      }
+    },
+    "Sikkim": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 73.08916666666667,
+        "rainfall": 1042.9054166666667,
+        "temperature": 7.410416666666667
+      },
+      "stds": {
+        "humidity": 3.550505067153696,
+        "rainfall": 356.8566665980489,
+        "temperature": 0.37201541771073515
+      }
+    },
+    "Tamil Nadu": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 72.27875,
+        "rainfall": 1232.2345833333331,
+        "temperature": 27.955416666666668
+      },
+      "stds": {
+        "humidity": 1.3365670252716382,
+        "rainfall": 292.0836506592376,
+        "temperature": 0.23149756626886137
+      }
+    },
+    "Telangana": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 60.20208333333334,
+        "rainfall": 805.0154166666667,
+        "temperature": 26.090833333333332
+      },
+      "stds": {
+        "humidity": 3.547503689573308,
+        "rainfall": 202.16189214241504,
+        "temperature": 0.4402263910334307
+      }
+    },
+    "Tripura": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 75.41916666666667,
+        "rainfall": 2223.51625,
+        "temperature": 25.251666666666665
+      },
+      "stds": {
+        "humidity": 2.806562056985404,
+        "rainfall": 692.7052464750225,
+        "temperature": 0.3047117906519517
+      }
+    },
+    "Uttar Pradesh": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 51.45791666666667,
+        "rainfall": 997.6179166666667,
+        "temperature": 25.88958333333333
+      },
+      "stds": {
+        "humidity": 5.059232609936935,
+        "rainfall": 232.84770542472168,
+        "temperature": 0.5546207412878342
+      }
+    },
+    "Uttarakhand": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 54.999583333333334,
+        "rainfall": 1244.7483333333332,
+        "temperature": 17.97458333333333
+      },
+      "stds": {
+        "humidity": 4.993399538318095,
+        "rainfall": 301.2186295651407,
+        "temperature": 0.5456466380572584
+      }
+    },
+    "West Bengal": {
+      "last_year": 2020,
+      "means": {
+        "humidity": 73.89874999999999,
+        "rainfall": 1565.3062499999999,
+        "temperature": 25.794999999999998
+      },
+      "stds": {
+        "humidity": 1.3428791667613802,
+        "rainfall": 195.19949420400656,
+        "temperature": 0.2852001585462087
+      }
+    }
+  },
+  "state_feature_defaults": {
+    "Andhra Pradesh": {
+      "K": 22.0,
+      "N": 78.0,
+      "P": 45.0,
+      "humidity": 69.79,
+      "ph": 6.8,
+      "rainfall": 991.2,
+      "temperature": 28.04
+    },
+    "Arunachal Pradesh": {
+      "K": 35.0,
+      "N": 55.0,
+      "P": 15.0,
+      "humidity": 77.16,
+      "ph": 5.5,
+      "rainfall": 2160.98,
+      "temperature": 22.42
+    },
+    "Assam": {
+      "K": 38.0,
+      "N": 60.0,
+      "P": 18.0,
+      "humidity": 76.6,
+      "ph": 5.8,
+      "rainfall": 1852.95,
+      "temperature": 22.89
+    },
+    "Bihar": {
+      "K": 25.0,
+      "N": 85.0,
+      "P": 30.0,
+      "humidity": 55.07,
+      "ph": 7.2,
+      "rainfall": 965.89,
+      "temperature": 26.25
+    },
+    "Chhattisgarh": {
+      "K": 20.0,
+      "N": 70.0,
+      "P": 35.0,
+      "humidity": 58.73,
+      "ph": 6.5,
+      "rainfall": 1214.25,
+      "temperature": 26.22
+    },
+    "Delhi": {
+      "K": 30.0,
+      "N": 90.0,
+      "P": 40.0,
+      "humidity": 43.62,
+      "ph": 7.5,
+      "rainfall": 677.81,
+      "temperature": 25.73
+    },
+    "Goa": {
+      "K": 45.0,
+      "N": 65.0,
+      "P": 25.0,
+      "humidity": 73.57,
+      "ph": 6.2,
+      "rainfall": 2059.15,
+      "temperature": 27.35
+    },
+    "Gujarat": {
+      "K": 28.0,
+      "N": 75.0,
+      "P": 38.0,
+      "humidity": 47.63,
+      "ph": 7.8,
+      "rainfall": 758.93,
+      "temperature": 27.49
+    },
+    "Haryana": {
+      "K": 35.0,
+      "N": 130.0,
+      "P": 48.0,
+      "humidity": 46.02,
+      "ph": 7.9,
+      "rainfall": 920.16,
+      "temperature": 24.18
+    },
+    "Himachal Pradesh": {
+      "K": 40.0,
+      "N": 60.0,
+      "P": 20.0,
+      "humidity": 48.28,
+      "ph": 6.0,
+      "rainfall": 962.76,
+      "temperature": 21.24
+    },
+    "Jammu and Kashmir": {
+      "K": 42.0,
+      "N": 70.0,
+      "P": 25.0,
+      "humidity": 54.96,
+      "ph": 6.7,
+      "rainfall": 747.32,
+      "temperature": 9.04
+    },
+    "Jharkhand": {
+      "K": 30.0,
+      "N": 68.0,
+      "P": 22.0,
+      "humidity": 61.765,
+      "ph": 6.1,
+      "rainfall": 1350.34,
+      "temperature": 23.55
+    },
+    "Karnataka": {
+      "K": 25.0,
+      "N": 72.0,
+      "P": 42.0,
+      "humidity": 68.73,
+      "ph": 6.9,
+      "rainfall": 858.32,
+      "temperature": 23.73
+    },
+    "Kerala": {
+      "K": 50.0,
+      "N": 65.0,
+      "P": 28.0,
+      "humidity": 80.06,
+      "ph": 5.7,
+      "rainfall": 1778.18,
+      "temperature": 26.95
+    },
+    "Madhya Pradesh": {
+      "K": 20.0,
+      "N": 70.0,
+      "P": 40.0,
+      "humidity": 51.96,
+      "ph": 7.4,
+      "rainfall": 1129.49,
+      "temperature": 25.18
+    },
+    "Maharashtra": {
+      "K": 26.0,
+      "N": 75.0,
+      "P": 43.0,
+      "humidity": 67.19,
+      "ph": 7.1,
+      "rainfall": 2339.17,
+      "temperature": 26.76
+    },
+    "Manipur": {
+      "K": 37.0,
+      "N": 58.0,
+      "P": 17.0,
+      "humidity": 74.69,
+      "ph": 5.9,
+      "rainfall": 1224.95,
+      "temperature": 20.53
+    },
+    "Meghalaya": {
+      "K": 33.0,
+      "N": 52.0,
+      "P": 16.0,
+      "humidity": 81.8,
+      "ph": 5.6,
+      "rainfall": 2652.89,
+      "temperature": 17.87
+    },
+    "Mizoram": {
+      "K": 34.0,
+      "N": 54.0,
+      "P": 15.0,
+      "humidity": 76.93,
+      "ph": 5.7,
+      "rainfall": 1855.02,
+      "temperature": 22.96
+    },
+    "Nagaland": {
+      "K": 36.0,
+      "N": 56.0,
+      "P": 16.0,
+      "humidity": 75.38,
+      "ph": 5.8,
+      "rainfall": 1170.87,
+      "temperature": 18.4
+    },
+    "Odisha": {
+      "K": 32.0,
+      "N": 67.0,
+      "P": 26.0,
+      "humidity": 72.99,
+      "ph": 6.3,
+      "rainfall": 1552.0,
+      "temperature": 26.42
+    },
+    "Puducherry": {
+      "K": 40.0,
+      "N": 88.0,
+      "P": 55.0,
+      "humidity": 75.01,
+      "ph": 7.0,
+      "rainfall": 1082.72,
+      "temperature": 28.1
+    },
+    "Punjab": {
+      "K": 40.0,
+      "N": 150.0,
+      "P": 50.0,
+      "humidity": 46.02,
+      "ph": 8.0,
+      "rainfall": 920.16,
+      "temperature": 24.18
+    },
+    "Sikkim": {
+      "K": 30.0,
+      "N": 50.0,
+      "P": 20.0,
+      "humidity": 71.84,
+      "ph": 5.5,
+      "rainfall": 887.94,
+      "temperature": 7.43
+    },
+    "Tamil Nadu": {
+      "K": 30.0,
+      "N": 80.0,
+      "P": 38.0,
+      "humidity": 72.2,
+      "ph": 6.6,
+      "rainfall": 1165.21,
+      "temperature": 27.98
+    },
+    "Telangana": {
+      "K": 24.0,
+      "N": 77.0,
+      "P": 48.0,
+      "humidity": 58.22,
+      "ph": 7.0,
+      "rainfall": 741.24,
+      "temperature": 26.23
+    },
+    "Tripura": {
+      "K": 35.0,
+      "N": 62.0,
+      "P": 20.0,
+      "humidity": 75.86,
+      "ph": 5.9,
+      "rainfall": 2054.22,
+      "temperature": 25.28
+    },
+    "Uttar Pradesh": {
+      "K": 35.0,
+      "N": 120.0,
+      "P": 45.0,
+      "humidity": 51.6,
+      "ph": 7.6,
+      "rainfall": 976.03,
+      "temperature": 25.93
+    },
+    "Uttarakhand": {
+      "K": 38.0,
+      "N": 80.0,
+      "P": 24.0,
+      "humidity": 54.87,
+      "ph": 6.4,
+      "rainfall": 1272.14,
+      "temperature": 17.98
+    },
+    "West Bengal": {
+      "K": 45.0,
+      "N": 85.0,
+      "P": 40.0,
+      "humidity": 73.6,
+      "ph": 6.2,
+      "rainfall": 1553.26,
+      "temperature": 25.82
+    }
+  },
+  "states": [
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jammu and Kashmir",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Puducherry",
+    "Punjab",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal"
+  ],
+  "training_rows": 19520,
+  "yield_model_metrics": {
+    "holdout_mae_t_ha": 1.1943423205209516,
+    "holdout_r2": 0.9360916714741061,
+    "holdout_rows": 3904,
+    "training_rows": 15616
+  }
+}
