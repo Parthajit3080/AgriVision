@@ -6,6 +6,7 @@ import sys
 import json
 import logging
 from contextlib import asynccontextmanager
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -20,11 +21,33 @@ os.environ.setdefault("AGRIVISION_ONNX_PATH", str(ROOT / "model" / "agrivision_w
 os.environ.setdefault("AGRIVISION_ONNX_METADATA", str(ROOT / "model" / "agrivision_onnx_metadata.json"))
 
 sys.path.insert(0, str(BASE))
-from agrivision_onnx_inference import AgriVisionONNX  # noqa: E402
 from . import auth_store  # noqa: E402
 from .auth_routes import frontend_origins, optional_user, require_csrf, router as account_router  # noqa: E402
 
 logger = logging.getLogger("agrivision.api")
+
+
+@lru_cache(maxsize=1)
+def _get_model() -> Any:
+    """Load inference dependencies on demand so a model error cannot crash the site."""
+    try:
+        from agrivision_onnx_inference import AgriVisionONNX
+
+        return AgriVisionONNX()
+    except Exception as exc:
+        logger.exception("The ONNX inference model could not be loaded.")
+        raise HTTPException(status_code=503, detail="The inference model is temporarily unavailable.") from exc
+
+
+@lru_cache(maxsize=1)
+def _get_metadata() -> dict[str, Any]:
+    """Read public model metadata without importing ONNX Runtime."""
+    try:
+        metadata_path = Path(os.environ["AGRIVISION_ONNX_METADATA"])
+        return json.loads(metadata_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        logger.exception("The public inference metadata could not be loaded.")
+        raise HTTPException(status_code=503, detail="Planner metadata is temporarily unavailable.") from exc
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
@@ -61,9 +84,6 @@ async def security_headers(request: Request, call_next):
         response.headers["Cache-Control"] = "no-store"
     return response
 
-# One model session for the lifetime of this API process.
-model = AgriVisionONNX()
-metadata = model.meta
 app.include_router(account_router)
 
 
@@ -118,12 +138,14 @@ class PredictRequest(BaseModel):
 
 @app.get("/api/health")
 def health() -> dict[str, str]:
+    _get_model()
     return {"status": "ready", "model": "AgriVision ONNX"}
 
 
 @app.get("/api/metadata")
 def get_metadata() -> dict[str, Any]:
     # Keep the browser payload compact; the complete metadata stays server-side.
+    metadata = _get_metadata()
     return {
         "states": metadata["states"],
         "crops": metadata["crops"],
@@ -144,7 +166,7 @@ def predict(request: Request, payload: PredictRequest, user: dict[str, Any] | No
             # state change and therefore needs the same CSRF/Origin check as account APIs.
             require_csrf(request)
         inputs = payload.model_dump()
-        report = model.predict(inputs)
+        report = _get_model().predict(inputs)
         if user:
             now = auth_store.timestamp()
             with auth_store.db_session() as connection:
@@ -176,3 +198,4 @@ def predict(request: Request, payload: PredictRequest, user: dict[str, Any] | No
 web_directory = ROOT / "out"
 if web_directory.is_dir():
     app.mount("/", StaticFiles(directory=web_directory, html=True), name="website")
+
