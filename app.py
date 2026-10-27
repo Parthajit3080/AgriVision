@@ -1,6 +1,13 @@
 """Vercel FastAPI entry point with a visible startup failure response."""
 import json
 import logging
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+PYTHON_RUNTIME_DEPS = PROJECT_ROOT / "model" / "runtime_deps"
+if PYTHON_RUNTIME_DEPS.is_dir():
+    sys.path.insert(0, str(PYTHON_RUNTIME_DEPS))
 
 try:
     from backend.app import app
@@ -22,4 +29,3 @@ except Exception:
         await send({"type": "http.response.body", "body": body})
 
 __all__ = ["app"]
-
