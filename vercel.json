@@ -5,5 +5,8 @@
     "app.py": {
       "includeFiles": "{out/**,model/**,backend/migrations/**}"
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/app.py/api/$1" }
+  ]
 }
