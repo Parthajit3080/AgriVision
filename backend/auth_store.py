@@ -1,4 +1,4 @@
-"""SQLite persistence and security primitives for AgriVision account features."""
+"""SQLite/Postgres persistence and security primitives for account features."""
 from __future__ import annotations
 
 import contextlib
@@ -12,6 +12,15 @@ import sqlite3
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterator
+
+try:
+    import psycopg
+    from psycopg.rows import dict_row
+    DATABASE_ERRORS: tuple[type[BaseException], ...] = (sqlite3.Error, psycopg.Error)
+except ImportError:  # Keep SQLite-only local environments usable without psycopg.
+    psycopg = None  # type: ignore[assignment]
+    dict_row = None  # type: ignore[assignment]
+    DATABASE_ERRORS = (sqlite3.Error,)
 
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parent
@@ -36,6 +45,10 @@ def parse_timestamp(value: str) -> datetime:
 
 def get_database_path() -> Path:
     return Path(os.getenv("AGRIVISION_DB_PATH", str(ROOT / "data" / "agrivision.sqlite3"))).expanduser().resolve()
+
+
+def get_database_url() -> str:
+    return os.getenv("DATABASE_URL", os.getenv("AGRIVISION_DATABASE_URL", "")).strip()
 
 
 def app_secret() -> bytes:
@@ -97,7 +110,35 @@ def validate_email(email: str) -> str:
     return normalized
 
 
-def _connect(path: Path | None = None) -> sqlite3.Connection:
+class _PostgresConnection:
+    """Small compatibility layer so existing account queries keep SQLite placeholders."""
+
+    def __init__(self, connection: Any):
+        self._connection = connection
+
+    def execute(self, query: str, params: Any = ()) -> Any:
+        if query.strip().upper() == "BEGIN IMMEDIATE":
+            query = "BEGIN"
+        return self._connection.execute(query.replace("?", "%s"), params)
+
+    def commit(self) -> None:
+        self._connection.commit()
+
+    def rollback(self) -> None:
+        self._connection.rollback()
+
+    def close(self) -> None:
+        self._connection.close()
+
+
+def _connect(path: Path | None = None) -> Any:
+    database_url = get_database_url() if path is None else ""
+    if database_url:
+        if psycopg is None:
+            raise RuntimeError("psycopg is required when DATABASE_URL is configured.")
+        connection = psycopg.connect(database_url, row_factory=dict_row, connect_timeout=10)
+        return _PostgresConnection(connection)
+
     database = path or get_database_path()
     database.parent.mkdir(parents=True, exist_ok=True)
     connection = sqlite3.connect(database, timeout=10, isolation_level="DEFERRED")
@@ -110,7 +151,7 @@ def _connect(path: Path | None = None) -> sqlite3.Connection:
 
 
 @contextlib.contextmanager
-def db_session(path: Path | None = None) -> Iterator[sqlite3.Connection]:
+def db_session(path: Path | None = None) -> Iterator[Any]:
     connection = _connect(path)
     try:
         yield connection
@@ -126,17 +167,46 @@ def initialize_database(path: Path | None = None) -> None:
     migration_dir = BASE / "migrations"
     connection = _connect(path)
     try:
+        is_postgres = isinstance(connection, _PostgresConnection)
+        if is_postgres:
+            connection.execute("SELECT pg_advisory_xact_lock(1726, 1)")
         connection.execute(
             "CREATE TABLE IF NOT EXISTS schema_migrations ("
             "version INTEGER PRIMARY KEY, name TEXT NOT NULL, applied_at TEXT NOT NULL)"
         )
-        connection.commit()
-        migration = migration_dir / "001_identity_and_membership.up.sql"
+        migration = migration_dir / (
+            "001_identity_and_membership.postgres.sql" if is_postgres else "001_identity_and_membership.up.sql"
+        )
         if not migration.exists():
             raise RuntimeError(f"Required migration is missing: {migration.name}")
         applied = connection.execute("SELECT 1 FROM schema_migrations WHERE version = 1").fetchone()
         if not applied:
-            connection.executescript(migration.read_text(encoding="utf-8"))
+            migration_sql = migration.read_text(encoding="utf-8")
+            if is_postgres:
+                for statement in migration_sql.split(";"):
+                    if statement.strip():
+                        connection.execute(statement)
+                connection.execute(
+                    "CREATE OR REPLACE FUNCTION prevent_admin_audit_mutation() "
+                    "RETURNS trigger LANGUAGE plpgsql AS $agri$ BEGIN "
+                    "RAISE EXCEPTION 'administrative audit entries are immutable'; END; $agri$"
+                )
+                connection.execute("DROP TRIGGER IF EXISTS admin_audit_no_update ON admin_audit_logs")
+                connection.execute(
+                    "CREATE TRIGGER admin_audit_no_update BEFORE UPDATE ON admin_audit_logs "
+                    "FOR EACH ROW EXECUTE FUNCTION prevent_admin_audit_mutation()"
+                )
+                connection.execute("DROP TRIGGER IF EXISTS admin_audit_no_delete ON admin_audit_logs")
+                connection.execute(
+                    "CREATE TRIGGER admin_audit_no_delete BEFORE DELETE ON admin_audit_logs "
+                    "FOR EACH ROW EXECUTE FUNCTION prevent_admin_audit_mutation()"
+                )
+                connection.execute(
+                    "INSERT INTO schema_migrations(version, name, applied_at) VALUES (?, ?, ?)",
+                    (1, "identity_and_membership", timestamp()),
+                )
+            else:
+                connection.executescript(migration_sql)
         retention_cutoff = timestamp(utc_now() - timedelta(days=90))
         connection.execute(
             "DELETE FROM sessions WHERE (expires_at < ? OR revoked_at < ?) AND created_at < ?",
@@ -198,7 +268,7 @@ def session_ttl() -> timedelta:
     return timedelta(hours=hours)
 
 
-def create_session(connection: sqlite3.Connection, user_id: int, request: Any) -> tuple[str, int, str]:
+def create_session(connection: Any, user_id: int, request: Any) -> tuple[str, int, str]:
     token = secrets.token_urlsafe(32)
     now = utc_now()
     expires = now + session_ttl()
@@ -206,14 +276,14 @@ def create_session(connection: sqlite3.Connection, user_id: int, request: Any) -
     agent = request.headers.get("user-agent", "")[:300]
     cursor = connection.execute(
         "INSERT INTO sessions(user_id, token_hash, created_at, expires_at, last_seen_at, ip_hash, user_agent) "
-        "VALUES (?, ?, ?, ?, ?, ?, ?)",
+        "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id",
         (user_id, hashlib.sha256(token.encode()).hexdigest(), timestamp(now), timestamp(expires), timestamp(now), keyed_hash(ip), agent),
     )
     connection.execute("UPDATE users SET last_login_at = ?, updated_at = ? WHERE id = ?", (timestamp(now), timestamp(now), user_id))
-    return token, int(cursor.lastrowid), timestamp(expires)
+    return token, int(cursor.fetchone()["id"]), timestamp(expires)
 
 
-def lookup_session(connection: sqlite3.Connection, token: str | None, *, touch: bool = True) -> tuple[sqlite3.Row, sqlite3.Row] | None:
+def lookup_session(connection: Any, token: str | None, *, touch: bool = True) -> tuple[Any, Any] | None:
     if not token or len(token) > 256:
         return None
     digest = hashlib.sha256(token.encode()).hexdigest()
@@ -235,7 +305,7 @@ def lookup_session(connection: sqlite3.Connection, token: str | None, *, touch: 
 
 
 def enforce_rate_limit(
-    connection: sqlite3.Connection,
+    connection: Any,
     *,
     scope: str,
     bucket: str,
@@ -262,7 +332,7 @@ def request_ip_hash(request: Any) -> str | None:
     return keyed_hash(request.client.host)
 
 
-def add_activity(connection: sqlite3.Connection, user_id: int, event_type: str, details: dict[str, Any] | None = None) -> None:
+def add_activity(connection: Any, user_id: int, event_type: str, details: dict[str, Any] | None = None) -> None:
     connection.execute(
         "INSERT INTO activity_events(user_id, event_type, details_json, created_at) VALUES (?, ?, ?, ?)",
         (user_id, event_type, json_dump(details or {}), timestamp()),
@@ -270,7 +340,7 @@ def add_activity(connection: sqlite3.Connection, user_id: int, event_type: str, 
 
 
 def add_audit(
-    connection: sqlite3.Connection,
+    connection: Any,
     actor_id: int,
     action: str,
     target_id: int | None,
@@ -284,4 +354,51 @@ def add_audit(
     )
 
 
+def bootstrap_initial_admin() -> bool:
+    """Create the configured first superadmin once, then forget the password in this process."""
+    if not get_database_url():
+        return False
+    username = os.getenv("AGRIVISION_BOOTSTRAP_ADMIN_ID", "").strip()
+    email = os.getenv("AGRIVISION_BOOTSTRAP_ADMIN_EMAIL", "").strip()
+    password = os.getenv("AGRIVISION_BOOTSTRAP_ADMIN_PASSWORD", "")
+    if not (username and email and password):
+        return False
+
+    if not re.fullmatch(r"[A-Za-z0-9_-]{3,40}", username):
+        raise RuntimeError("AGRIVISION_BOOTSTRAP_ADMIN_ID is invalid.")
+    email = validate_email(email)
+    if len(password) > 128 or len(password.encode("utf-8")) > 512:
+        raise RuntimeError("AGRIVISION_BOOTSTRAP_ADMIN_PASSWORD is too long.")
+
+    with db_session() as connection:
+        if isinstance(connection, _PostgresConnection):
+            connection.execute("SELECT pg_advisory_xact_lock(1726, 2)")
+        existing = connection.execute(
+            "SELECT 1 FROM users WHERE role IN ('admin', 'superadmin') LIMIT 1"
+        ).fetchone()
+        if existing:
+            _forget_bootstrap_admin_environment()
+            return False
+        now = timestamp()
+        cursor = connection.execute(
+            "INSERT INTO users(email, username, display_name, password_hash, role, created_at, updated_at) "
+            "VALUES (?, ?, ?, ?, 'superadmin', ?, ?) RETURNING id",
+            (email, username, "AgriVision Superadmin", hash_password(password), now, now),
+        )
+        user_id = int(cursor.fetchone()["id"])
+        add_activity(connection, user_id, "initial_superadmin_created")
+    _forget_bootstrap_admin_environment()
+    return True
+
+
+def _forget_bootstrap_admin_environment() -> None:
+    for key in (
+        "AGRIVISION_BOOTSTRAP_ADMIN_ID",
+        "AGRIVISION_BOOTSTRAP_ADMIN_EMAIL",
+        "AGRIVISION_BOOTSTRAP_ADMIN_PASSWORD",
+    ):
+        os.environ.pop(key, None)
+
+
 _DUMMY_HASH = dummy_password_hash()
+
