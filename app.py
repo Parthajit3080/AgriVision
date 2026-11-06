@@ -29,3 +29,4 @@ except Exception:
         await send({"type": "http.response.body", "body": body})
 
 __all__ = ["app"]
+
