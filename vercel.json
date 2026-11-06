@@ -1,9 +1,15 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "public",
   "functions": {
-    "app.py": {
-      "includeFiles": "{out/**,model/**}"
+    "asgi.py": {
+      "includeFiles": "{out/**,model/**,backend/migrations/**}"
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/asgi.py" },
+    { "source": "/(.*)", "destination": "/$1" }
+  ]
 }
 
