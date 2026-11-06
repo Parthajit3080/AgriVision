@@ -7,6 +7,6 @@
     }
   },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/app.py/api/$1" }
+    { "source": "/api/:path*", "destination": "/app.py/api/:path*" }
   ]
 }
