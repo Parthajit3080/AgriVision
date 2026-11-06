@@ -263,7 +263,7 @@ def _user_from_request(request: Request, *, required: bool) -> dict[str, Any] | 
             public["_session_id"] = session["id"]
             public["_session_token_hash"] = session["token_hash"]
             return public
-    except sqlite3.Error as exc:
+    except store.DATABASE_ERRORS as exc:
         if required:
             raise HTTPException(status_code=503, detail="Account services are temporarily unavailable.") from exc
         logger.warning("Session validation is unavailable; handling the request as a guest.")
@@ -328,16 +328,16 @@ def issue_csrf(response: Response) -> dict[str, str]:
 def signup(body: SignupBody, request: Request, response: Response, _csrf: None = Depends(require_csrf)) -> dict[str, Any]:
     with store.db_session() as connection:
         _rate_limit(request, "signup", body.email, 10, 3600)
-        existing = connection.execute("SELECT id FROM users WHERE email = ? COLLATE NOCASE", (body.email,)).fetchone()
+        existing = connection.execute("SELECT id FROM users WHERE lower(email) = lower(?)", (body.email,)).fetchone()
         if existing:
             raise HTTPException(status_code=409, detail="An account with that email already exists.")
         password_hash = store.hash_password(body.password)
         now = store.timestamp()
         cursor = connection.execute(
-            "INSERT INTO users(email, display_name, password_hash, created_at, updated_at) VALUES (?, ?, ?, ?, ?)",
+            "INSERT INTO users(email, display_name, password_hash, created_at, updated_at) VALUES (?, ?, ?, ?, ?) RETURNING id",
             (body.email, body.display_name, password_hash, now, now),
         )
-        user = connection.execute("SELECT * FROM users WHERE id = ?", (cursor.lastrowid,)).fetchone()
+        user = connection.execute("SELECT * FROM users WHERE id = ?", (cursor.fetchone()["id"],)).fetchone()
         store.add_activity(connection, user["id"], "account_created")
         public = _new_session(connection, request, response, user)
     return {"user": public}
@@ -347,7 +347,7 @@ def signup(body: SignupBody, request: Request, response: Response, _csrf: None =
 def login(body: LoginBody, request: Request, response: Response, _csrf: None = Depends(require_csrf)) -> dict[str, Any]:
     with store.db_session() as connection:
         _rate_limit(request, "login", body.email, 12, 900)
-        user = connection.execute("SELECT * FROM users WHERE email = ? COLLATE NOCASE", (body.email,)).fetchone()
+        user = connection.execute("SELECT * FROM users WHERE lower(email) = lower(?)", (body.email,)).fetchone()
         encoded = user["password_hash"] if user else store._DUMMY_HASH
         valid = store.verify_password(body.password, encoded)
         if not user or not valid or user["account_status"] != "active":
@@ -363,7 +363,7 @@ def admin_login(body: AdminLoginBody, request: Request, response: Response, _csr
     with store.db_session() as connection:
         _rate_limit(request, "admin-login", identity, 8, 900)
         user = connection.execute(
-            "SELECT * FROM users WHERE (username = ? COLLATE NOCASE OR email = ? COLLATE NOCASE) "
+            "SELECT * FROM users WHERE (lower(username) = lower(?) OR lower(email) = lower(?)) "
             "AND role IN ('admin', 'superadmin')",
             (identity, identity),
         ).fetchone()
@@ -469,7 +469,7 @@ def forgot_password(body: ForgotPasswordBody, request: Request, background_tasks
     reset_url = None
     with store.db_session() as connection:
         _rate_limit(request, "forgot-password", body.email, 5, 3600)
-        user = connection.execute("SELECT id, email, account_status FROM users WHERE email = ? COLLATE NOCASE", (body.email,)).fetchone()
+        user = connection.execute("SELECT id, email, account_status FROM users WHERE lower(email) = lower(?)", (body.email,)).fetchone()
         if user and user["account_status"] == "active":
             raw_token = secrets.token_urlsafe(32)
             now = store.utc_now()
@@ -583,12 +583,13 @@ def request_membership(body: MembershipBody, user: dict[str, Any] = Depends(curr
         if pending:
             raise HTTPException(status_code=409, detail="You already have a request under review.")
         cursor = connection.execute(
-            "INSERT INTO membership_applications(user_id, plan_code, message, status, created_at, updated_at) VALUES (?, ?, ?, 'pending', ?, ?)",
+            "INSERT INTO membership_applications(user_id, plan_code, message, status, created_at, updated_at) VALUES (?, ?, ?, 'pending', ?, ?) RETURNING id",
             (user["id"], body.plan_code, body.message.strip(), now, now),
         )
         connection.execute("UPDATE users SET membership_status = 'pending', updated_at = ? WHERE id = ?", (now, user["id"]))
-        store.add_activity(connection, user["id"], "premium_request_submitted", {"application_id": cursor.lastrowid})
-        application = connection.execute("SELECT * FROM membership_applications WHERE id = ?", (cursor.lastrowid,)).fetchone()
+        application_id = cursor.fetchone()["id"]
+        store.add_activity(connection, user["id"], "premium_request_submitted", {"application_id": application_id})
+        application = connection.execute("SELECT * FROM membership_applications WHERE id = ?", (application_id,)).fetchone()
     return {"application": dict(application)}
 
 
@@ -877,3 +878,4 @@ def audit_logs(
          "actor_email": row["actor_email"], "target_email": row["target_email"]}
         for row in rows
     ], "total": total}
+
