@@ -49,10 +49,10 @@ def _get_metadata() -> dict[str, Any]:
         logger.exception("The public inference metadata could not be loaded.")
         raise HTTPException(status_code=503, detail="Planner metadata is temporarily unavailable.") from exc
 
+
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    # Keep the established public inference service available if the additive
-    # account store is unavailable; account endpoints will surface their errors.
+    # Keep guest planning available if account storage has a transient failure.
     try:
         auth_store.app_secret()
         auth_store.initialize_database()
@@ -84,6 +84,7 @@ async def security_headers(request: Request, call_next):
     if request.url.path == "/api/predict" or request.url.path.startswith(("/api/auth/", "/api/admin/", "/api/membership", "/api/premium/")):
         response.headers["Cache-Control"] = "no-store"
     return response
+
 
 app.include_router(account_router)
 
@@ -145,7 +146,6 @@ def health() -> dict[str, str]:
 
 @app.get("/api/metadata")
 def get_metadata() -> dict[str, Any]:
-    # Keep the browser payload compact; the complete metadata stays server-side.
     metadata = _get_metadata()
     return {
         "states": metadata["states"],
@@ -163,8 +163,6 @@ def get_metadata() -> dict[str, Any]:
 def predict(request: Request, payload: PredictRequest, user: dict[str, Any] | None = Depends(optional_user)) -> dict[str, Any]:
     try:
         if user:
-            # Prediction remains guest-accessible, but report persistence is a
-            # state change and therefore needs the same CSRF/Origin check as account APIs.
             require_csrf(request)
         inputs = payload.model_dump()
         report = _get_model().predict(inputs)
@@ -189,13 +187,12 @@ def predict(request: Request, payload: PredictRequest, user: dict[str, Any] | No
         raise
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
-    except Exception as exc:  # surfaced as a service error without exposing internals
+    except Exception as exc:
         raise HTTPException(status_code=500, detail="Prediction could not be completed. Check the inference service logs.") from exc
 
 
-# In Vercel, the static export is served by the CDN and this ASGI app handles
-# API routes. Other single-host deployments can still serve the export here.
+# Vercel's Python build does not collect this ASGI mount for the CDN, so include
+# the static export with the function and serve it here alongside the API.
 web_directory = ROOT / "out"
-if web_directory.is_dir() and os.getenv("VERCEL") != "1":
+if web_directory.is_dir():
     app.mount("/", StaticFiles(directory=web_directory, html=True), name="website")
-
