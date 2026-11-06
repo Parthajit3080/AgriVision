@@ -56,6 +56,7 @@ async def lifespan(_app: FastAPI):
     try:
         auth_store.app_secret()
         auth_store.initialize_database()
+        auth_store.bootstrap_initial_admin()
     except Exception:
         logger.exception("Account storage could not initialize; guest predictions remain available.")
     yield
@@ -192,10 +193,9 @@ def predict(request: Request, payload: PredictRequest, user: dict[str, Any] | No
         raise HTTPException(status_code=500, detail="Prediction could not be completed. Check the inference service logs.") from exc
 
 
-# In the free single-host deployment, Next.js is exported as static files and
-# served from this ASGI process so browser API calls and session cookies stay
-# same-origin. Local development continues to use `next dev` on port 3000.
+# In Vercel, the static export is served by the CDN and this ASGI app handles
+# API routes. Other single-host deployments can still serve the export here.
 web_directory = ROOT / "out"
-if web_directory.is_dir():
+if web_directory.is_dir() and os.getenv("VERCEL") != "1":
     app.mount("/", StaticFiles(directory=web_directory, html=True), name="website")
 
