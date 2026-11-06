@@ -6,7 +6,9 @@
       "includeFiles": "{out/**,model/**,backend/migrations/**}"
     }
   },
-  "rewrites": [
-    { "source": "/api/:path*", "destination": "/app.py/api/:path*" }
+  "routes": [
+    { "src": "/api/(?<api>.*)", "dest": "/app.py?_asgi_path=/api/$api" },
+    { "handle": "filesystem" },
+    { "src": "/(?<path>.*)", "dest": "/app.py?_asgi_path=/$path" }
   ]
 }
