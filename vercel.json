@@ -3,13 +3,11 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "public",
   "functions": {
-    "asgi.py": {
+    "app.py": {
       "includeFiles": "{out/**,model/**,backend/migrations/**}"
     }
   },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/asgi.py" },
-    { "source": "/(.*)", "destination": "/$1" }
+    { "source": "/api/(.*)", "destination": "/app.py" }
   ]
 }
-
