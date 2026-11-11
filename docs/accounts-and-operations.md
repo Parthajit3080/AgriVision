@@ -18,8 +18,10 @@ The command prompts for an admin ID, email, display name, and password. It does 
 - Serve the web app and API over HTTPS. Set `AGRIVISION_COOKIE_SECURE=true`. Keep `AGRIVISION_COOKIE_SAMESITE=lax` when both origins are same-site; use `none` only for a deliberately cross-site setup, which also requires secure cookies.
 - Set `FRONTEND_ORIGIN` to a comma-separated allowlist of exact browser origins. The API uses credentialed CORS and verifies the Origin plus a signed CSRF token for state-changing account and admin requests.
 - Set `NEXT_PUBLIC_AGRIVISION_API` at Next.js build time and `APP_PUBLIC_URL` to the public web origin. Configure SMTP with `SMTP_HOST`, `SMTP_PORT`, `SMTP_FROM`, and optional username/password to deliver one-time password reset links. Without SMTP, reset URLs are exposed only while `APP_ENV` is development, dev, or test.
-- Use a durable local disk for SQLite. This deployment is a single-host SQLite setup: SQLite WAL files must stay on the same local filesystem, and concurrent multi-host deployments should move the account store to a managed database with an equivalent migration before scaling out.
-- Back up the database and test restoring it before upgrades. The `backend/migrations/001_identity_and_membership.down.sql` script is destructive; use it only when intentionally rolling back the account feature after a verified backup. No deployment pipeline or hosted database was present in the inspected project, so neither is modified here.
+- Set `DATABASE_URL` to a managed PostgreSQL connection string for durable accounts and report history. The API applies the PostgreSQL identity migration automatically during startup. SQLite remains the local development default; a Vercel `/tmp` database is temporary and isolated to each function instance.
+- Back up the database and test restoring it before upgrades. The `backend/migrations/001_identity_and_membership.down.sql` script is destructive; use it only when intentionally rolling back the SQLite account feature after a verified backup.
+
+For a one-time first superadmin on a managed PostgreSQL database, set `AGRIVISION_BOOTSTRAP_ADMIN_ID`, `AGRIVISION_BOOTSTRAP_ADMIN_EMAIL`, and `AGRIVISION_BOOTSTRAP_ADMIN_PASSWORD` in the production environment. Startup creates the account only if no admin exists and clears those values from that running process. Remove the temporary variables from the deployment configuration after the first successful initialization.
 
 ## Security and data behavior
 

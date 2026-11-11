@@ -92,4 +92,3 @@ CREATE TABLE IF NOT EXISTS auth_attempts (
     attempted_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS auth_attempt_scope_key_time ON auth_attempts(scope, key_hash, attempted_at DESC);
-

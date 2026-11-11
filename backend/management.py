@@ -38,7 +38,7 @@ def create_initial_admin() -> int:
     now = store.timestamp()
     with store.db_session() as connection:
         duplicate = connection.execute(
-            "SELECT 1 FROM users WHERE username = ? COLLATE NOCASE OR email = ? COLLATE NOCASE",
+            "SELECT 1 FROM users WHERE lower(username) = lower(?) OR lower(email) = lower(?)",
             (username, email),
         ).fetchone()
         if duplicate:
@@ -46,10 +46,10 @@ def create_initial_admin() -> int:
             return 2
         cursor = connection.execute(
             "INSERT INTO users(email, username, display_name, password_hash, role, created_at, updated_at) "
-            "VALUES (?, ?, ?, ?, 'superadmin', ?, ?)",
+            "VALUES (?, ?, ?, ?, 'superadmin', ?, ?) RETURNING id",
             (email, username, display_name, store.hash_password(password), now, now),
         )
-        store.add_activity(connection, cursor.lastrowid, "initial_superadmin_created")
+        store.add_activity(connection, cursor.fetchone()["id"], "initial_superadmin_created")
     print(f"Initial superadmin '{username}' created. Sign in at /admin/login.")
     return 0
 

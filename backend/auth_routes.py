@@ -878,4 +878,3 @@ def audit_logs(
          "actor_email": row["actor_email"], "target_email": row["target_email"]}
         for row in rows
     ], "total": total}
-
