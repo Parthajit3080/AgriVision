@@ -1,0 +1,59 @@
+{
+  "actual_model_metrics": {
+    "holdout_mae_t_ha": 1.1943423205209516,
+    "holdout_r2": 0.9360916714741061,
+    "holdout_rows": 3904,
+    "training_rows": 15616
+  },
+  "synthetic_dummy_data": {
+    "seed": 2026,
+    "rows": 900,
+    "holdout_rows": 180,
+    "model_scores": {
+      "Mean baseline": {
+        "MAE": 1.4461803737085344,
+        "RMSE": 1.7302208515931423,
+        "R2": -0.00015839718882171283
+      },
+      "Linear regression": {
+        "MAE": 1.0917878940844272,
+        "RMSE": 1.3373926142775914,
+        "R2": 0.40243721397932086
+      },
+      "Decision tree": {
+        "MAE": 0.9027527915050662,
+        "RMSE": 1.1100596409462564,
+        "R2": 0.58832136531985
+      },
+      "Random forest": {
+        "MAE": 0.7091732731851599,
+        "RMSE": 0.8539988646834276,
+        "R2": 0.756342216563306
+      }
+    }
+  },
+  "fertilizer_dummy_example": {
+    "starting_soil": {
+      "N": 40.0,
+      "P": 20.0,
+      "K": 15.0
+    },
+    "targets": {
+      "K": 35.0,
+      "N": 78.0,
+      "P": 40.0
+    },
+    "rates_kg_ha": {
+      "Urea": 65.59546313799622,
+      "DAP": 43.47826086956522,
+      "MOP": 33.333333333333336
+    },
+    "costs_inr_ha": {
+      "Urea": 406.6918714555766,
+      "DAP": 1173.913043478261,
+      "MOP": 566.6666666666667
+    },
+    "total_cost_inr_ha": 2147.2715816005043
+  },
+  "notice": "Synthetic comparison and fertilizer illustration are examples only; they are not performance or recommendations from the shipped model."
+}

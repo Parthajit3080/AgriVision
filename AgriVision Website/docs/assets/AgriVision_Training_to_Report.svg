@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f4f8f2"/><stop offset="1" stop-color="#eaf3ed"/></linearGradient>
+ <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#183d30" flood-opacity=".12"/></filter>
+ <marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1L11 6 1 11z" fill="#648477"/></marker>
+ <style>
+ .title{font:700 43px Arial,sans-serif;fill:#193f32}.sub{font:400 20px Arial,sans-serif;fill:#63786f}
+ .head{font:700 21px Arial,sans-serif;letter-spacing:1px}.body{font:600 23px Arial,sans-serif;fill:#243c32}
+ .small{font:500 17px Arial,sans-serif;fill:#587065}.chip{font:700 16px Arial,sans-serif}
+ .white{fill:#fff}.line{stroke:#78988a;stroke-width:4;fill:none;marker-end:url(#arr)}
+ </style>
+</defs>
+<rect width="1600" height="1000" rx="34" fill="url(#bg)"/>
+<circle cx="1480" cy="105" r="130" fill="#dcece1"/><circle cx="80" cy="930" r="125" fill="#e0eee5"/>
+<text x="800" y="78" text-anchor="middle" class="title">AgriVision · Training to Farm Report</text>
+<text x="800" y="115" text-anchor="middle" class="sub">Offline model preparation → user inputs → integrated recommendations</text>
+<!-- top pipeline -->
+<g filter="url(#shadow)">
+ <rect x="90" y="155" width="350" height="116" rx="24" fill="#fff" stroke="#c9ddd0" stroke-width="2"/>
+ <rect x="625" y="155" width="350" height="116" rx="24" fill="#fff" stroke="#c9ddd0" stroke-width="2"/>
+ <rect x="1160" y="155" width="350" height="116" rx="24" fill="#fff" stroke="#c9ddd0" stroke-width="2"/>
+</g>
+<rect x="90" y="155" width="12" height="116" rx="6" fill="#42866b"/>
+<rect x="625" y="155" width="12" height="116" rx="6" fill="#6385bb"/>
+<rect x="1160" y="155" width="12" height="116" rx="6" fill="#d39b3a"/>
+<text x="125" y="194" class="head" fill="#42866b">01  OFFLINE DATA</text><text x="125" y="228" class="small">Historical farm, soil &amp; weather data</text><text x="125" y="252" class="small">cleaned and prepared for training</text>
+<text x="660" y="194" class="head" fill="#6385bb">02  MODEL TRAINING</text><text x="660" y="228" class="small">Train each prediction engine</text><text x="660" y="252" class="small">using its relevant dataset</text>
+<text x="1195" y="194" class="head" fill="#b17b1d">03  SAVED MODELS</text><text x="1195" y="228" class="small">Model files &amp; preprocessing setup</text><text x="1195" y="252" class="small">loaded by inference service</text>
+<path d="M455 213H610" class="line"/><path d="M990 213H1145" class="line"/>
+<text x="800" y="322" text-anchor="middle" class="head" fill="#657b70">INFERENCE · FOUR ENGINES</text>
+<path d="M1335 272V345H265V384M1335 345H635V384M1335 345H965V384M1335 345H1295V384" class="line"/>
+<!-- model cards -->
+<g filter="url(#shadow)">
+ <rect x="90" y="390" width="350" height="160" rx="25" fill="#e9f1ff" stroke="#9bb7e5" stroke-width="2"/>
+ <rect x="460" y="390" width="350" height="160" rx="25" fill="#e5f4e9" stroke="#8ec4a0" stroke-width="2"/>
+ <rect x="830" y="390" width="350" height="160" rx="25" fill="#fff3dc" stroke="#e1bc70" stroke-width="2"/>
+ <rect x="1200" y="390" width="310" height="160" rx="25" fill="#ffebe7" stroke="#e2a092" stroke-width="2"/>
+</g>
+<circle cx="130" cy="433" r="18" fill="#5683ce"/><text x="130" y="439" text-anchor="middle" class="chip white">1</text>
+<text x="265" y="441" text-anchor="middle" class="body">Crop Suitability</text><text x="265" y="485" text-anchor="middle" class="head" fill="#4169a8">Random Forest</text><text x="265" y="520" text-anchor="middle" class="small">Suitable crop recommendation</text>
+<circle cx="500" cy="433" r="18" fill="#4a9a68"/><text x="500" y="439" text-anchor="middle" class="chip white">2</text>
+<text x="635" y="441" text-anchor="middle" class="body">Yield Estimate</text><text x="635" y="485" text-anchor="middle" class="head" fill="#34804f">LightGBM</text><text x="635" y="520" text-anchor="middle" class="small">Expected production &amp; return</text>
+<circle cx="870" cy="433" r="18" fill="#d39b32"/><text x="870" y="439" text-anchor="middle" class="chip white">3</text>
+<text x="1005" y="441" text-anchor="middle" class="body">Climate Risk</text><text x="1005" y="485" text-anchor="middle" class="head" fill="#a57616">ARIMA</text><text x="1005" y="520" text-anchor="middle" class="small">Forecast &amp; risk signals</text>
+<circle cx="1240" cy="433" r="18" fill="#db745e"/><text x="1240" y="439" text-anchor="middle" class="chip white">4</text>
+<text x="1355" y="441" text-anchor="middle" class="body">Fertilizer Plan</text><text x="1355" y="485" text-anchor="middle" class="head" fill="#b65342">MLP</text><text x="1355" y="520" text-anchor="middle" class="small">Recommended nutrient rates</text>
+<!-- combine -->
+<path d="M265 550V594H800M635 550V594M1005 550V594M1355 550V594H800V625" class="line"/>
+<g filter="url(#shadow)"><rect x="520" y="630" width="560" height="90" rx="25" fill="#244f3c"/></g>
+<text x="800" y="670" text-anchor="middle" class="head white">AGGREGATE PREDICTIONS</text><text x="800" y="699" text-anchor="middle" font-family="Arial" font-size="18" fill="#d9eee0">Combine model outputs into one farm plan</text>
+<!-- lower user path -->
+<path d="M800 720V757H485V790M800 757H1115V790" class="line"/>
+<g filter="url(#shadow)"><rect x="190" y="795" width="590" height="120" rx="25" fill="#fff" stroke="#a8c6b4" stroke-width="2"/><rect x="820" y="795" width="590" height="120" rx="25" fill="#fff" stroke="#dfc681" stroke-width="2"/></g>
+<rect x="190" y="795" width="12" height="120" rx="6" fill="#42866b"/><rect x="820" y="795" width="12" height="120" rx="6" fill="#d39b3a"/>
+<text x="235" y="840" class="head" fill="#42866b">USER INPUT</text><text x="235" y="875" class="small">Location · season · soil · crop choices</text><text x="235" y="901" class="small">Farm size · available conditions</text>
+<text x="865" y="840" class="head" fill="#b17b1d">PERSONALIZED REPORT</text><text x="865" y="875" class="small">Crop fit · yield / return · climate risk</text><text x="865" y="901" class="small">Fertilizer recommendation</text>
+<path d="M485 795V757H800V720" stroke="#78988a" stroke-width="4" fill="none" marker-end="url(#arr)"/>
+<path d="M800 720V757H1115V795" class="line"/>
+<text x="800" y="962" text-anchor="middle" font-family="Arial" font-size="15" fill="#81948a">Model names are shown as supplied for this workflow diagram.</text>
+</svg>

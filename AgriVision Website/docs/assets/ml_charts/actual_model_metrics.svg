@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+<rect width="1200" height="620" rx="24" fill="#F7F6EF"/>
+<text x="54" y="62" font-family="Arial,sans-serif" font-size="29" font-weight="700" fill="#163A2A">AgriVision ONNX model · recorded holdout evaluation</text>
+<text x="55.0" y="111.0" text-anchor="start" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#65766C">Random Forest yield regression · values from shipped model metadata</text>
+<rect x="55" y="165" width="320" height="210" rx="18" fill="#FFFFFF" stroke="#DCE3D9" stroke-width="2"/>
+<rect x="55" y="165" width="320" height="9" rx="4" fill="#26734E"/>
+<text x="79.0" y="215.0" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#26734E">MAE</text>
+<text x="79.0" y="292.0" text-anchor="start" font-family="Arial,sans-serif" font-size="55" font-weight="700" fill="#163A2A">1.19</text>
+<text x="79.0" y="338.0" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#65766C">tonnes per hectare</text>
+<rect x="440" y="165" width="320" height="210" rx="18" fill="#FFFFFF" stroke="#DCE3D9" stroke-width="2"/>
+<rect x="440" y="165" width="320" height="9" rx="4" fill="#4E84C4"/>
+<text x="464.0" y="215.0" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#4E84C4">R²</text>
+<text x="464.0" y="292.0" text-anchor="start" font-family="Arial,sans-serif" font-size="55" font-weight="700" fill="#163A2A">0.936</text>
+<text x="464.0" y="338.0" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#65766C">coefficient of determination</text>
+<rect x="825" y="165" width="320" height="210" rx="18" fill="#FFFFFF" stroke="#DCE3D9" stroke-width="2"/>
+<rect x="825" y="165" width="320" height="9" rx="4" fill="#E0AF3D"/>
+<text x="849.0" y="215.0" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#E0AF3D">Holdout</text>
+<text x="849.0" y="292.0" text-anchor="start" font-family="Arial,sans-serif" font-size="55" font-weight="700" fill="#163A2A">3,904</text>
+<text x="849.0" y="338.0" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#65766C">rows evaluated</text>
+<rect x="55" y="418" width="1090" height="138" rx="18" fill="#EAF1E8"/>
+<text x="82.0" y="461.0" text-anchor="start" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#26734E">Use for this regression model</text>
+<text x="82.0" y="503.0" text-anchor="start" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#163A2A">MAE · RMSE · R²</text>
+<text x="650.0" y="461.0" text-anchor="start" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#BE695A">Not applicable to continuous yield prediction</text>
+<text x="650.0" y="503.0" text-anchor="start" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#163A2A">Accuracy · F1-score</text>
+<text x="55.0" y="593.0" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#65766C">Training rows: 15,616   ·   RMSE is not recorded in the project metadata.</text>
+</svg>
