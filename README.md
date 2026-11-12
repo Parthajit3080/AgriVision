@@ -1,41 +1,130 @@
-# AgriVision field planner
+# AgriVision
 
-A Next.js field-planning interface backed by the supplied dataset-free ONNX inference adapter. The API process loads AgriVisionONNX() once and reuses its session; crop and fertilizer predictions use the ONNX model, while climate scenarios use compact state-climate summaries. No CSV is read at request time.
+A crop-planning web app for exploring crop, yield, fertilizer, and climate scenarios using a farmer’s location, season, land, and soil-test inputs. The frontend is built with Next.js; a FastAPI service runs ONNX inference and optional account features.
+
+## Features
+
+- Compare crop recommendations using modeled yield, embedded market prices, risk settings, and optional cost inputs.
+- Explore state-level climate scenarios and fertilizer plans based on soil inputs.
+- Generate and preview downloadable PDF reports.
+- Use the planner as a guest, or create an account to save reports and preferences.
+- Review membership requests and manage accounts through the protected admin workspace.
+
+## Project layout
+
+```text
+.
+├── backend/                  # FastAPI API, account services, and database migrations
+├── deployment/               # PythonAnywhere deployment scripts and guide
+├── docs/                     # Operations notes, diagrams, and model charts
+├── model/                    # ONNX inference model and runtime metadata
+├── public/                   # Browser assets, including the PDF.js worker
+├── scripts/                  # Build and documentation helpers
+├── src/                      # Next.js pages, components, and bundled location data
+├── tests/                    # Python API and model tests
+├── AgriVision Final Folder/  # Model export sources and source datasets
+├── app.py                    # Vercel FastAPI entry point
+├── asgi.py                   # ASGI entry point for other deployments
+└── vercel.json               # Static export and API routing configuration
+```
+
+The API loads the ONNX model for inference; it does not read the source CSV files during prediction. The model and compact metadata used at runtime are in `model/`.
 
 ## Run locally
 
-Requirements: Node.js 20+, Python 3.10+.
+### Requirements
+
+- Python **3.12** (see `.python-version`)
+- Node.js **20 or newer**
+- pnpm
+
+### Start the API
+
+In PowerShell, from the repository root:
 
 ```powershell
-npm install
-python -m venv .venv
+py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-uvicorn backend.app:app --reload --port 8000
+python -m pip install -r requirements.txt
+Copy-Item .env.example .env
+python -m uvicorn backend.app:app --reload --port 8000 --env-file .env
 ```
 
-The web interface uses Tailwind CSS 4, Chart.js (`chart.js` + `react-chartjs-2`), jsPDF with AutoTable for report generation, and PDF.js to render the generated report in the browser before printing. The PDF.js worker is served from `public/pdf.worker.min.mjs`. District choices are bundled from the MIT-licensed directory listed in `src/data/README.md` and filtered immediately when a state is selected.
+### Start the website
 
-In a second terminal, run `npm run dev` and open `http://localhost:3000`. The browser calls the API at `http://localhost:8000`; set `NEXT_PUBLIC_AGRIVISION_API` at build time to use another API origin. The Python API allows that origin through `FRONTEND_ORIGIN` (defaults to localhost:3000). Copy `.env.example` to `.env` to configure account storage, browser sessions, and optional email delivery.
+In a second terminal, from the repository root:
 
-The ONNX model and compact metadata are in `model/`. The source adapter is in `backend/agrivision_onnx_inference.py`. `GET /api/metadata` serves only states, crop labels, fertilizer product names, and short model/climate metrics. `POST /api/predict` remains public and retains its request/response contract. Guest requests return the report without account persistence; signed-in requests also save the report to the user's history.
+```powershell
+pnpm install
+pnpm dev
+```
 
-The site supports guest planning and optional accounts at `/signup` and `/login`. Account recovery uses `/forgot-password` and `/reset-password`. To bootstrap the first administrator on a persistent database, run `python -m backend.management create-admin`; deployments can also use the one-time `AGRIVISION_BOOTSTRAP_ADMIN_ID`, `AGRIVISION_BOOTSTRAP_ADMIN_EMAIL`, and `AGRIVISION_BOOTSTRAP_ADMIN_PASSWORD` variables. The app clears these values from the running process after the first superadmin is created. The protected admin workspace is at `/admin/login`. Membership is manually reviewed. Billing is not configured. See [accounts and operations](docs/accounts-and-operations.md) for cookie, secret, SMTP, backup, and database deployment guidance.
+Open [http://localhost:3000](http://localhost:3000). The development frontend uses the API at `http://localhost:8000` by default. Check the API at [`/api/health`](http://localhost:8000/api/health); interactive API documentation is available at [`/docs`](http://localhost:8000/docs).
 
-For a no-cost public preview, the Next.js pages can be exported and served by the FastAPI app on one origin. See the [PythonAnywhere deployment guide](deployment/pythonanywhere.md); its free tier is intended for small experiments and has renewal and resource limits.
+To create an optimized static export, run:
 
-## Vercel deployment
+```powershell
+pnpm build
+```
 
-Vercel builds the static Next.js export and serves it from its CDN; `/api/*` requests run through the FastAPI/ONNX ASGI function. The `vercel.json` configuration bundles the exported pages, model, and migrations. Configure `APP_ENV=production`, a private `AGRIVISION_SECRET` (at least 32 bytes), `AGRIVISION_COOKIE_SECURE=true`, and `FRONTEND_ORIGIN`/`APP_PUBLIC_URL` to the public web origin. Set `DATABASE_URL` to the Neon pooled PostgreSQL connection string for durable accounts and report history. Locally, SQLite remains the default; Vercel must have `DATABASE_URL` set because its filesystem is ephemeral. The app applies the included PostgreSQL migration at startup.
+This runs the Next.js build and copies the export into `public/` for deployment.
 
-## Model interpretation
+## API overview
 
-- Yield holdout MAE is **1.19 t/ha**, a prototype metric, not a guarantee of field accuracy.
-- Production costs are absent from source data. Profit values remain unavailable until a production cost per hectare is supplied.
-- The report explains its top pick: with supplied production costs it uses risk-adjusted expected profit; otherwise it ranks by modeled gross revenue (yield estimate multiplied by embedded crop price), since profit cannot be calculated.
-- Downside risk is a crop-specific composite score from 1 to 100 using state climate exposure and the yield model's relative holdout MAE; with production costs it also incorporates simulated financial loss. It is a planning index, not a calibrated probability.
-- Climate charts show state-level seasonal estimates based on historical means and deterministic, reproducible simulated year-to-year variability scaled by state historical standard deviations. The package does not include raw annual climate records, so these values are illustrative scenarios, not observed weather or a calibrated forecast. No long-term trend is extrapolated without yearly data.
-- Embedded mandi prices are historical snapshots. Refresh metadata before production use.
-- Suitability probabilities are not calibrated. District is captured in the report, while climate and crop context are state-level.
-- Fertilizer estimates need confirmation against a current local soil test, state guidance, and product labels. Climate estimates are annual and are not official weather warnings.
-- An empty fertilizer product map means the optimizer selected zero rates under the submitted inputs and objective. It is not a finding that the crop needs no nutrients; confirm recommendations with a current soil test and local agronomic guidance.
+| Route | Purpose |
+| --- | --- |
+| `GET /api/health` | Check that the inference service and model are available. |
+| `GET /api/metadata` | Load public crop, state, fertilizer, and model summary data. |
+| `POST /api/predict` | Generate a field-planning report. Guest access is supported. |
+| `/api/auth/*` | Account, session, preferences, and saved-report operations. |
+| `/api/membership/*` | Submit and review Field Plus membership requests. |
+| `/api/admin/*` | Protected account and platform administration. |
+
+The website includes `/signup`, `/login`, `/forgot-password`, `/reset-password`, `/account`, and `/admin/login` pages. Membership is reviewed by an administrator; billing is not configured.
+
+## Configuration
+
+Copy `.env.example` to `.env` for local development. Keep real credentials in environment variables or a secret manager; do not commit `.env` files.
+
+| Variable | Use |
+| --- | --- |
+| `AGRIVISION_SECRET` | Stable signing secret; use at least 32 bytes in production. |
+| `AGRIVISION_DB_PATH` | Local SQLite file path. SQLite is the default for local development. |
+| `DATABASE_URL` | PostgreSQL connection string for persistent account and report data. |
+| `APP_ENV` | Set to `production` in production deployments. |
+| `AGRIVISION_COOKIE_SECURE` | Set to `true` when serving over HTTPS. |
+| `FRONTEND_ORIGIN` | Exact allowed browser origin or comma-separated origin allowlist. |
+| `APP_PUBLIC_URL` | Public website origin used when creating account recovery links. |
+| `NEXT_PUBLIC_AGRIVISION_API` | Optional API origin, set at frontend build time; leave unset for the same-origin deployment. |
+| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_FROM` | Optional SMTP configuration for password-reset email. |
+
+For production account setup, database migrations, admin bootstrapping, cookie settings, and backups, see [Account and operations guide](docs/accounts-and-operations.md).
+
+## Deploy
+
+### Vercel
+
+The included `vercel.json` builds the Next.js static export and routes `/api/*` requests to the FastAPI ASGI function. Configure these Vercel environment variables:
+
+- `APP_ENV=production`
+- `AGRIVISION_SECRET` with a private value of at least 32 bytes
+- `AGRIVISION_COOKIE_SECURE=true`
+- `FRONTEND_ORIGIN` and `APP_PUBLIC_URL` set to the deployed site origin
+- `DATABASE_URL` set to a persistent PostgreSQL connection string for accounts and saved reports
+- SMTP variables if password-reset emails are required
+
+The Vercel filesystem is ephemeral, so use PostgreSQL for durable account and report storage. The API applies the included PostgreSQL migration at startup. After deployment, check `/api/health` on the public site.
+
+### PythonAnywhere
+
+See the [PythonAnywhere deployment guide](deployment/pythonanywhere.md) for the static export, ASGI setup, and free-preview limitations.
+
+## Model notes and limitations
+
+- The recorded yield evaluation reports a holdout MAE of **1.19 t/ha** and an R² of **0.936** on 3,904 rows. These are prototype metrics, not a guarantee of field accuracy.
+- The app does not include a calibrated crop-suitability classifier; suitability probabilities are unavailable.
+- Embedded mandi prices are historical snapshots. Refresh them before making current financial decisions.
+- Climate charts show reproducible, state-level scenarios. They are not official weather forecasts, and district-level climate observations are not included.
+- Profit estimates require production-cost inputs. Without them, the planner cannot determine net profit.
+- Fertilizer rates are planning estimates. Confirm them against a current soil test, local agricultural guidance, and product labels before use.
+
