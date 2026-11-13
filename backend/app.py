@@ -193,8 +193,9 @@ def predict(request: Request, payload: PredictRequest, user: dict[str, Any] | No
         raise HTTPException(status_code=500, detail="Prediction could not be completed. Check the inference service logs.") from exc
 
 
-# In Vercel, the static export is served by the CDN and this ASGI app handles
-# API routes. Other single-host deployments can still serve the export here.
+# Serve the exported frontend from the ASGI app as well as the API. Vercel's
+# FastAPI framework routes requests through this function, so relying on the
+# static output directory alone leaves the site root with a FastAPI 404.
 web_directory = ROOT / "out"
-if web_directory.is_dir() and os.getenv("VERCEL") != "1":
+if web_directory.is_dir():
     app.mount("/", StaticFiles(directory=web_directory, html=True), name="website")
