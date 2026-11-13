@@ -6,9 +6,5 @@
     "asgi.py": {
       "includeFiles": "{out/**,model/**,backend/migrations/**}"
     }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/asgi.py" },
-    { "source": "/(.*)", "destination": "/$1" }
-  ]
+  }
 }
